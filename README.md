@@ -7,12 +7,19 @@ English | [简体中文](README-zh.md)
 
 # What is ZettaStor DBS？
 
-ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. It serves as a solid digital base for core applications.
+ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by Pengyun Network.
 
-- [x] IT architecture upgrade: software-defined technology, storage resource pooling, multi-scenario applications support, silo-free environment
-- [x] Cost saving: reducing TCO by more than 60% compared to traditional storage, based on standard servers and network hardwares
-- [x] On-demand customization and flexible expansion: horizontal and linear expansion, on-demand performance and capacity, lower costs
-- [x] Safe, efficient and seamless migration: the original system remains untouched, with simple and visualized migration process
+# Technical Advantages of ZettaStor DBS
+
+ZettaStor DBS is independently developed by Pengyun Network, since its initial release of version 1.0 in 2015, the product has been widely used in private clouds and data centers in various industries, such as telecommunications, finance, government, military, public security, media, medical care, education, scientific research, etc., and can seamlessly adapt to typical applications without any changes.
+
+- [x] __Decentralized Architecture__: A symmetric distributed architecture based on the decentralized blockchain network, eliminates traditional limitations and disadvantages on system scale, I/O performance, stability and reliability.
+- [x] __Large-scale Node Deployment__: Stable high-performance is constantly maintained at optimal conditions, with the deployment of tens of thousands of nodes. The product's capacity and performance scale linearly with more storage nodes.
+- [x] __Sub-millisecond Latency__: Minimized I/O processing path by directly reading/writing to disk, using an optimized network data path. It is capable of achieving sub-millisecond latencies with magnetic storage devices as primary storage configuration.
+- [x] __Recovery-in-place__: When a hard disk or node failure occurs, a healthy one can immediately take over. The fault recovery time is less than 1 second, and there will be no impact on I/O performance.
+- [x] __Secure and Controllable__: Complete intellectual property ownership with independent research-and-development, compatible with China-made hardware, operating systems and localized storage solutions.
+
+# Versions and Features of ZettaStor DBS
 
 | Features | Community Edition  | Enterprise Edition | 
 | ------------- | ------------- |  ------------- | 
