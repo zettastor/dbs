@@ -5,11 +5,19 @@
 
 English | [简体中文](README-zh.md)
 
+Content index
+========
+  - [About ZettaStor DBS](#what-is-zettastor-dbs)
+  - [Technical Advantages](#technical-advantages)
+  - [Versions and Features](#versions-and-features)
+
 # What is ZettaStor DBS？
 
-ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by Pengyun Network.
+ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by [Pengyun Network](https://www.pengyunnetwork.cn).
 
-# Technical Advantages of ZettaStor DBS
+ZettaStor DBS comes in two distributions: the Community Edition and Enterprise Edition. The source code for the Community Edition is distributed under the [AGPL 3.0](LICENSE.md) license.
+
+# Technical Advantages
 
 ZettaStor DBS is independently developed by Pengyun Network, since its initial release of version 1.0 in 2015, the product has been widely used in private clouds and data centers in various industries, such as telecommunications, finance, government, military, public security, media, medical care, education, scientific research, etc., and can seamlessly adapt to typical applications without any changes.
 
@@ -19,17 +27,30 @@ ZettaStor DBS is independently developed by Pengyun Network, since its initial r
 - [x] __Recovery-in-place__: When a hard disk or node failure occurs, a healthy one can immediately take over. The fault recovery time is less than 1 second, and there will be no impact on I/O performance.
 - [x] __Secure and Controllable__: Complete intellectual property ownership with independent research-and-development, compatible with China-made hardware, operating systems and localized storage solutions.
 
-# Versions and Features of ZettaStor DBS
+# Versions and Features
+
+The following table compares some key features between various versions of ZettaStor DBS.
 
 | Features | Community Edition  | Enterprise Edition | 
 | ------------- | ------------- |  ------------- | 
-| Decentralized architecture | ![CI (Linux)](https://img.shields.io/badge/-supported-brightgreen)| ![CI (Linux)](https://img.shields.io/badge/-supported-brightgreen) |
-| Sub-millisecond latency | ![CI (macOS)](https://img.shields.io/badge/-supported-brightgreen) | ![CI (macOS)](https://img.shields.io/badge/-supported-brightgreen) |
-| Large-scale node deployment | ![CI (Windows)](https://img.shields.io/badge/-supported-brightgreen) | ![CI (Windows)](https://img.shields.io/badge/-supported-brightgreen) |
-| Real-time customer support | ![Build documentation](https://img.shields.io/badge/-unsupported-red)| ![Build documentation](https://img.shields.io/badge/-supported-brightgreen) |
-| Cluster size | ![minimum](https://img.shields.io/badge/minimum-%E2%89%A53-blue) ![maximum](https://img.shields.io/badge/maximum-%E2%89%A510000-blue) | ![minimum](https://img.shields.io/badge/minimum-%E2%89%A53-blue) ![maximum](https://img.shields.io/badge/maximum-%E2%89%A510000-blue) |
-| Data redundancy mode | ![redundancy](https://img.shields.io/badge/-2%20copies-blue) | ![redundancy](https://img.shields.io/badge/-2%20copies-blue) ![redundancy](https://img.shields.io/badge/-3%20copies-blue) |
-| Data access protocol | ![SCSI](https://img.shields.io/badge/-scsi-blue)  ![ISCSI](https://img.shields.io/badge/-iscsi-blue) | ![SCSI](https://img.shields.io/badge/-scsi-blue)  ![ISCSI](https://img.shields.io/badge/-iscsi-blue) ![CIFS](https://img.shields.io/badge/-cifs-blue)  ![NFS](https://img.shields.io/badge/-nfs-blue)  |
+| Volume Extension | ![](https://img.shields.io/badge/-supported-brightgreen)| ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Volume Shrink |  | ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Volume Clone |  | ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Volume Snapshot |  | ![](https://img.shields.io/badge/-supported-brightgreen) |
+| iSCSI Protocol | ![](https://img.shields.io/badge/-supported-brightgreen)| ![](https://img.shields.io/badge/-supported-brightgreen) |
+| PYD Protocol | ![](https://img.shields.io/badge/-supported-brightgreen)| ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Access Control | ![](https://img.shields.io/badge/-supported-brightgreen)| ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Data Access Control Strategy | ![](https://img.shields.io/badge/-supported-brightgreen)| ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Data Reconstruction Strategy | ![](https://img.shields.io/badge/-partial-blue)| ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Load Balancing Strategy | ![](https://img.shields.io/badge/-supported-brightgreen)| ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Cache Boosting |  | ![](https://img.shields.io/badge/-supported-brightgreen) |
+| System-wide Power Failure Protection |  | ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Disk Indicator |  | ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Disk Roaming | ![](https://img.shields.io/badge/-supported-brightgreen)| ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Alarm Management |  | ![](https://img.shields.io/badge/-supported-brightgreen) |
+| User Management | ![](https://img.shields.io/badge/-supported-brightgreen)| ![](https://img.shields.io/badge/-supported-brightgreen) |
+| Log Auditor | ![](https://img.shields.io/badge/-supported-brightgreen)| ![](https://img.shields.io/badge/-supported-brightgreen) |
+| GUI Operation | ![](https://img.shields.io/badge/-supported-brightgreen)| ![](https://img.shields.io/badge/-supported-brightgreen) |
 
 # Quick Start
 
