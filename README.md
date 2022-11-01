@@ -3,7 +3,7 @@
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1486/badge)](https://bestpractices.coreinfrastructure.org/projects/1486)
 [![LICENSE](https://img.shields.io/badge/licence-AGPL--3-blue.png)](https://github.com/lanewu/dbs/blob/master/LICENSE)
 
-English | [简体中文](README-zh.md)
+English | [简体中文](README-zh.md) | [ZettaStor DBS Website](https://zdbs.io)
 
 Content Index
 ========
@@ -20,7 +20,7 @@ Content Index
   - [How to Compile](#quick-start)
   - [Coding Standard](#coding-standard)
   - [Submit Your Code](#submit-your-code)
-  - [License](https://github.com/zettastor/dbs/blob/main/LICENSE)
+  - [License](LICENSE.md)
 
 # What is ZettaStor DBS？
 
@@ -103,7 +103,7 @@ mvn clean install
 ```
 
 # Where can I find out more?
-Documentation
+[ZettaStor DBS Website](https://zdbs.io)
 
 # Contributing
 
@@ -118,4 +118,4 @@ After finishing the development of your code, you should submit a pull request t
 For more details, please refer to [CONTRIBUTING](CONTRIBUTING.md).
 
 # License
-[AGPL 3.0](LICENSE)
+[AGPL 3.0](LICENSE.md)
