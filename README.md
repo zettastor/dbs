@@ -14,7 +14,7 @@ Content Index
 - [Versions and Features](#versions-and-features)
 - User Documentation
   - Operating System Installation
-  - Getting Started
+  - [Getting Started](INSTALL.md)
   - Advanced Configuration
   - User Manual
 - Developer Documentation
