@@ -50,30 +50,39 @@ MD5: `dc5932260da8f26bcdce0c7ebf0f59ca`
 Use USB drive or CD-ROM to start the OS installation interface.
 
 Select language as English
+
 <img src="https://zdbs.io/operatingsystem/media//image2.png" />
 
 Set the time zone
+
 <img src="https://zdbs.io/operatingsystem/media//image3.png" />
 
 Software selection
+
 <img src="https://zdbs.io/operatingsystem/media//image4.png" />
 
 Select the `Compute Node` mode in the software list. The Add-ons on the right are not required.
+
 <img src="https://zdbs.io/operatingsystem/media//image5.png" />
 
 Start the system partition configuration
+
 <img src="https://zdbs.io/operatingsystem/media//image6.png" />
 
 Select the disk on which the OS is installed, and then select `I will configure partitioning`.
+
 <img src="https://zdbs.io/operatingsystem/media//image7.png" />
 
 Change the partition mode to `Standard Partition`
+
 <img src="https://zdbs.io/operatingsystem/media//image8.png" />
 
 After selecting the `Standard Partition` mode, click `create them automatically` to adjust the partition.
+
 <img src="https://zdbs.io/operatingsystem/media//image9.png" />
 
 After the adjustment, only `/boot` and `/` partitions remain. All remaining space of the system disk is allocated to the root partition, and the file system format of the root partition is recommended to be `ext4` format
+
 <img src="https://zdbs.io/operatingsystem/media//image10.png" />
 
 (Here is a method to set the size of the root partition: After deleting the unnecessary partitions, select the root partition, set the size of the root partition to a capacity larger than the entire system disk, and then adjust the file system format of the root partition to `ext4`. The system will automatically allocate as much free space as possible to the root partition)
