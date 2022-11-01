@@ -13,7 +13,7 @@ Content Index
 - [Technical Advantages](#technical-advantages)
 - [Versions and Features](#versions-and-features)
 - User Documentation
-  - Operating System Installation
+  - [Operating System Installation](operatingsystem.md)
   - [Getting Started](INSTALL.md)
   - Advanced Configuration
   - User Manual
