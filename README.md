@@ -1,7 +1,7 @@
 # ZettaStor DBS
 
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1486/badge)](https://bestpractices.coreinfrastructure.org/projects/1486)
-[![LICENSE](https://img.shields.io/badge/licence-AGPL--3-blue.png)](https://github.com/lanewu/dbs/blob/master/LICENSE)
+[![LICENSE](https://img.shields.io/badge/licence-AGPL--3-blue.png)](LICENSE.md)
 
 English | [简体中文](README-zh.md) | [ZettaStor DBS Website](https://zdbs.io)
 
@@ -9,6 +9,8 @@ Content Index
 ========
 
 - [About ZettaStor DBS](#what-is-zettastor-dbs)
+  - [System Architecture Diagram](#system-architecture-diagram)
+  - [Schematic Diagram](#schematic-diagram)
 - [Technical Advantages](#technical-advantages)
 - [Versions and Features](#versions-and-features)
 - User Documentation
@@ -27,6 +29,12 @@ Content Index
 ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by [Pengyun Network](https://www.pengyunnetwork.cn).
 
 ZettaStor DBS comes in two distributions: the Community Edition and Enterprise Edition. The source code for the Community Edition is distributed under the [AGPL 3.0](LICENSE.md) license.
+
+## System Architecture Diagram
+<img src="https://github.com/zettastor/dbs/raw/main/assets/architecture_en.png" alt="System Architecture Diagram" width="428">
+
+## Schematic Diagram
+<img src="https://github.com/zettastor/dbs/raw/main/assets/schematic_en.png" alt="Schematic Diagram" width="425">
 
 # Technical Advantages
 
