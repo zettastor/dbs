@@ -5,11 +5,22 @@
 
 English | [简体中文](README-zh.md)
 
-Content index
+Content Index
 ========
-  - [About ZettaStor DBS](#what-is-zettastor-dbs)
-  - [Technical Advantages](#technical-advantages)
-  - [Versions and Features](#versions-and-features)
+
+- [About ZettaStor DBS](#what-is-zettastor-dbs)
+- [Technical Advantages](#technical-advantages)
+- [Versions and Features](#versions-and-features)
+- User Documentation
+  - Operating System Installation
+  - Getting Started
+  - Advanced Configuration
+  - User Manual
+- Developer Documentation
+  - [How to Compile](#quick-start)
+  - [Coding Standard](#coding-standard)
+  - [Submit Your Code](#submit-your-code)
+  - [License](https://github.com/zettastor/dbs/blob/main/LICENSE)
 
 # What is ZettaStor DBS？
 
