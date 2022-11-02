@@ -2,6 +2,8 @@
 
 [![LICENSE](https://img.shields.io/badge/licence-AGPL--3-blue.png)](LICENSE.md)
 
+<img src="https://github.com/zettastor/dbs/raw/main/assets/zettastordbs.png" alt="ZettaStor DBS">
+
 [English](README.md) | 简体中文 | [ZettaStor DBS 网站](https://zdbs.io)
 
 目录

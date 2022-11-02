@@ -53,28 +53,36 @@ MD5值：`dc5932260da8f26bcdce0c7ebf0f59ca`
 
 使用U盘或者虚拟光驱等方式，进入系统安装界面。
 
-首先选择语言为英语  
+首先选择语言为英语
+
 <img src="https://zdbs.io/operatingsystem/media/image2.png" />
 
-将时区设置为东八区。  
+将时区设置为东八区。
+
 <img src="https://zdbs.io/operatingsystem/media/image3.png" />
 
-进行本次系统安装的软件选择  
+进行本次系统安装的软件选择
+
 <img src="https://zdbs.io/operatingsystem/media/image4.png" />
 
 这里软件列表选择`Compute Node`模式。 右边的软件包不需要选择。
+
 <img src="https://zdbs.io/operatingsystem/media/image5.png" />
 
-确定软件选择之后，开始进行系统分区配置  
+确定软件选择之后，开始进行系统分区配置
+
 <img src="https://zdbs.io/operatingsystem/media/image6.png" />
 
-选中系统安装所在的磁盘，然后选择自主配置分区选项。  
+选中系统安装所在的磁盘，然后选择自主配置分区选项。
+
 <img src="https://zdbs.io/operatingsystem/media/image7.png" />
 
-将分区模式由默认的方式，更改为 `Standard Partition`  
+将分区模式由默认的方式，更改为 `Standard Partition`
+
 <img src="https://zdbs.io/operatingsystem/media/image8.png" />
 
-选定标准分区模式之后，点击上方的自动分区，进行分区调整。  
+选定标准分区模式之后，点击上方的自动分区，进行分区调整。
+
 <img src="https://zdbs.io/operatingsystem/media/image9.png" />
 
 调整后，只保留 `/boot` 和 `/` 分区。系统磁盘的所有剩余空间分配给根分区，根分区文件系统格式推荐设置为 `ext4` 格式
@@ -82,15 +90,15 @@ MD5值：`dc5932260da8f26bcdce0c7ebf0f59ca`
 
 （这里有个方法来设置根分区大小，将不需要的分区删除之后，选择根分区，将根分区的大小，设置为一个大于整个系统盘的容量，然后调整根分区的文件系统格式为 ext4。系统会自动将尽可能所有的剩余空间分配给根分区）
 
-确定分区配置，写入硬盘  
+确定分区配置，写入硬盘
 
 <img src="https://zdbs.io/operatingsystem/media/image11.png" />
 
-可以根据需要是否在此处配置节点的 IP 地址。然后可以开始安装操作。  
+可以根据需要是否在此处配置节点的 IP 地址。然后可以开始安装操作。
 
 <img src="https://zdbs.io/operatingsystem/media/image12.png" />
 
-在安装过程中，配置 root 用户的密码。不需要创建其它的用户。  
+在安装过程中，配置 root 用户的密码。不需要创建其它的用户。
 
 <img src="https://zdbs.io/operatingsystem/media/image13.png" />
 
@@ -169,7 +177,8 @@ Linux 下的网络绑定请参考[设置指南](https://www.cloudibee.com/networ
 
 <img src="https://zdbs.io/operatingsystem/media/image14.png" />
 
-在服务器角色中不需要选择任何角色，直接点击下一步  
+在服务器角色中不需要选择任何角色，直接点击下一步
+
 <img src="https://zdbs.io/operatingsystem/media/image15.png" />
 
 <img src="https://zdbs.io/operatingsystem/media/image16.png" />
@@ -188,7 +197,8 @@ Linux 下的网络绑定请参考[设置指南](https://www.cloudibee.com/networ
 
 <img src="https://zdbs.io/operatingsystem/media/image21.png" />
 
-启动 Windows 机器，在 MIPO 属性中多出一个设备。  
+启动 Windows 机器，在 MIPO 属性中多出一个设备。
+
 <img src="https://zdbs.io/operatingsystem/media/image22.png" />
 
 #### ISCSI客户端连接
@@ -211,7 +221,8 @@ Linux 下的网络绑定请参考[设置指南](https://www.cloudibee.com/networ
 
 <img src="https://zdbs.io/operatingsystem/media/image29.png" />
 
-将对应的逻辑卷进行连接（或者格式化），这样在我的电脑里面可以看到对应的磁盘分区。  
+将对应的逻辑卷进行连接（或者格式化），这样在我的电脑里面可以看到对应的磁盘分区。
+
 <img src="https://zdbs.io/operatingsystem/media/image30.png" />
 
 （有的磁盘状态为脱机，需要先进行联机操作）
@@ -226,7 +237,8 @@ Linux 下的网络绑定请参考[设置指南](https://www.cloudibee.com/networ
 
 这里以 CentOS 7 为例来进行介绍。
 
-首先使用 ISO 镜像制作 USB 启动盘（制作方法比较简单，可以自行上网搜索相关资料）。然后将服务器的启动顺序改为首先从 USB 启动。服务器启动后进行如下界面：  
+首先使用 ISO 镜像制作 USB 启动盘（制作方法比较简单，可以自行上网搜索相关资料）。然后将服务器的启动顺序改为首先从 USB 启动。服务器启动后进行如下界面：
+
 <img src="https://zdbs.io/operatingsystem/media/image33.png" />
 
 在进入安装界面时，按 `Tab` 键，将命令修改为如下内容
