@@ -2,7 +2,7 @@
 
 [![LICENSE](https://img.shields.io/badge/licence-AGPL--3-blue.png)](LICENSE.md)
 
-<img src="https://github.com/zettastor/dbs/raw/main/assets/zettastordbs.png" alt="ZettaStor DBS">
+<img src="assets/zettastordbs.png" alt="ZettaStor DBS" height="60">
 
 [English](README.md) | 简体中文 | [ZettaStor DBS 网站](https://zdbs.io)
 
@@ -15,10 +15,10 @@
 - [技术优势](#技术优势)
 - [不同版本的功能比较](#不同版本的功能比较)
 - 用户文档
-  - [安装操作系统](operatingsystem-zh.md)
+  - [安装操作系统](docs/operatingsystem-zh.md)
   - [快速配置与部署](INSTALL-zh.md)
-  - [高级配置与定制](configuration-zh.md)
-  - [用户手册](manual-zh.md)
+  - [高级配置与定制](docs/configuration-zh.md)
+  - [用户手册](docs/manual-zh.md)
 - 开发文档
   - [编译说明](#快速上手)
   - [编码标准](#编码标准)
@@ -32,10 +32,10 @@ ZettaStor DBS 由 [南京鹏云网络科技有限公司](https://www.pengyunnetw
 ZettaStor DBS 分为社区版（开源）和商业版。社区版的源代码在 [AGPL 3.0](LICENSE.md) 许可证下进行分发。
 
 ## 系统架构图
-<img src="https://github.com/zettastor/dbs/raw/main/assets/architecture_en.png" alt="System Architecture Diagram" width="428">
+<img src="assets/architecture_en.png" alt="System Architecture Diagram" width="428">
 
 ## 系统示意图
-<img src="https://github.com/zettastor/dbs/raw/main/assets/schematic_en.png" alt="Schematic Diagram" width="425">
+<img src="assets/schematic_en.png" alt="Schematic Diagram" width="425">
 
 # 技术优势
 

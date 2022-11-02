@@ -2,7 +2,7 @@
 
 [![LICENSE](https://img.shields.io/badge/licence-AGPL--3-blue.png)](LICENSE.md)
 
-<img src="https://github.com/zettastor/dbs/raw/main/assets/zettastordbs.png" alt="ZettaStor DBS">
+<img src="assets/zettastordbs.png" alt="ZettaStor DBS" height="60">
 
 English | [简体中文](README-zh.md) | [ZettaStor DBS Website](https://zdbs.io)
 
@@ -15,7 +15,7 @@ Content Index
 - [Technical Advantages](#technical-advantages)
 - [Versions and Features](#versions-and-features)
 - User Documentation
-  - [Operating System Installation](operatingsystem.md)
+  - [Operating System Installation](docs/operatingsystem.md)
   - [Getting Started](INSTALL.md)
   - Advanced Configuration
   - User Manual
@@ -32,10 +32,10 @@ ZettaStor DBS provides enterprise-level business storage solutions with high ava
 ZettaStor DBS comes in two distributions: the Community Edition and Enterprise Edition. The source code for the Community Edition is distributed under the [AGPL 3.0](LICENSE.md) license.
 
 ## System Architecture Diagram
-<img src="https://github.com/zettastor/dbs/raw/main/assets/architecture_en.png" alt="System Architecture Diagram" width="428">
+<img src="assets/architecture_en.png" alt="System Architecture Diagram" width="428">
 
 ## Schematic Diagram
-<img src="https://github.com/zettastor/dbs/raw/main/assets/schematic_en.png" alt="Schematic Diagram" width="425">
+<img src="assets/schematic_en.png" alt="Schematic Diagram" width="425">
 
 # Technical Advantages
 
