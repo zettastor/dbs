@@ -2,7 +2,7 @@
 
 [![LICENSE](https://img.shields.io/badge/licence-AGPL--3-blue.png)](LICENSE.md)
 
-<img src="assets/zettastordbs.png" alt="ZettaStor DBS" height="60">
+<img src="assets/pengyun.png" alt="ZettaStor DBS">
 
 [English](README.md) | 简体中文 | [ZettaStor DBS 网站](https://zdbs.io)
 
