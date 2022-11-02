@@ -32,10 +32,10 @@ ZettaStor DBS provides enterprise-level business storage solutions with high ava
 ZettaStor DBS comes in two distributions: the Community Edition and Enterprise Edition. The source code for the Community Edition is distributed under the [AGPL 3.0](LICENSE.md) license.
 
 ## System Architecture Diagram
-<img src="assets/architecture_en.png" alt="System Architecture Diagram" width="428">
+<img src="assets/architecture_en.png" alt="System Architecture Diagram" width="50%">
 
 ## Schematic Diagram
-<img src="assets/schematic_en.png" alt="Schematic Diagram" width="425">
+<img src="assets/schematic_en.png" alt="Schematic Diagram" width="50%">
 
 # Technical Advantages
 

@@ -32,10 +32,10 @@ ZettaStor DBS 由 [南京鹏云网络科技有限公司](https://www.pengyunnetw
 ZettaStor DBS 分为社区版（开源）和商业版。社区版的源代码在 [AGPL 3.0](LICENSE.md) 许可证下进行分发。
 
 ## 系统架构图
-<img src="assets/architecture_en.png" alt="System Architecture Diagram" width="428">
+<img src="assets/architecture_zh.png" alt="System Architecture Diagram" width="50%">
 
 ## 系统示意图
-<img src="assets/schematic_en.png" alt="Schematic Diagram" width="425">
+<img src="assets/schematic_zh.png" alt="Schematic Diagram" width="50%">
 
 # 技术优势
 
