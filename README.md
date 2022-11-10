@@ -82,22 +82,46 @@ If you're on Linux, the packages required for compilation can be installed by th
 
 ## 1. Setup a development environment
 
-### CentOS 7 / RHEL 7
+### RHEL(CentOS) 7
 ```bash
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install net-tools maven thrift protobuf-compiler
+yum install epel-release
+yum -y install git java-1.8.0-openjdk-devel thrift curl unzip
+
+# Install a newer version of Apache Maven
+curl -LO https://downloads.apache.org/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+tar -zxvf apache-maven-3.5.4-bin.tar.gz --directory /opt
+ln -s /opt/apache-maven-3.5.4 /opt/maven
+chown -R root:root /opt/maven
+echo '# Apache Maven Environment Variables' > /etc/profile.d/maven.sh
+echo 'export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk/' >> /etc/profile.d/maven.sh
+echo 'export PATH=/opt/maven/bin:${PATH}' >> /etc/profile.d/maven.sh
+
+# Install a newer version of Protocol Buffers
+curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
+unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
+
 ```
 
-### CentOS 8 / RHEL 8
+### RHEL(CentOS) 8
 ```bash
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-yum install net-tools maven compat-openssl10 protobuf-compiler
+yum install epel-release
+yum install git net-tools maven compat-openssl10 protobuf-compiler
 yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/t/thrift-0.9.1-15.el7.x86_64.rpm
+```
+
+### RHEL 9
+```bash
+yum install git maven unzip
+yum install http://mirror.centos.org/centos/8-stream/AppStream/x86_64/os/Packages/compat-openssl10-1.0.2o-3.el8.x86_64.rpm
+yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/t/thrift-0.9.1-15.el7.x86_64.rpm
+curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
+unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
 ### Debian 10 / Debian 11 / Ubuntu 18 / Ubuntu 20
 ```bash
-sudo apt-get install net-tools curl maven protobuf-compiler
+sudo apt-get update
+sudo apt-get install git net-tools curl maven protobuf-compiler
 curl -LO http://ftp.debian.org/debian/pool/main/t/thrift-compiler/thrift-compiler_0.9.1-2.1+b1_amd64.deb
 sudo dpkg -i thrift-compiler_0.9.1-2.1+b1_amd64.deb
 ```
@@ -109,12 +133,13 @@ curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/pr
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
-## 2. Compiling the code
-To build the package, Use the following commands in the directory where pom.xml is located
+## III. Compiling the code
+To build the package, Use the following commands in the directory where `pengyun-root/pom.xml` is located
 ```bash
-mvn versions:use-dep-version -DdepVersion=$(thrift --version | awk '{print $3}') -Dincludes=org.apache.thrift:libthrift
-mvn versions:use-dep-version -DdepVersion=$(protoc --version | awk '{print $2}') -Dincludes=com.google.protobuf:protobuf-java
-mvn clean install
+# Update version number from system environment
+mvn versions:set-property -Dproperty=libthrift.version -DnewVersion=$(thrift --version | awk '{print $3}')
+mvn versions:set-property -Dproperty=protobuf.version -DnewVersion=$(protoc --version | awk '{print $2}')
+mvn clean install -Dcheckstyle.skip=true -DskipTests
 ```
 
 # Where can I find out more?
