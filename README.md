@@ -17,7 +17,7 @@ Content Index
 - User Documentation
   - [Operating System Installation](docs/operatingsystem.md)
   - [Getting Started](INSTALL.md)
-  - Advanced Configuration
+  - [Advanced Configuration](docs/configuration.md)
   - User Manual
 - Developer Documentation
   - [How to Compile](#quick-start)
