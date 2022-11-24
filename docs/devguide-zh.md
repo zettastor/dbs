@@ -196,6 +196,8 @@ Size整数倍，具体倍数可以根据用户业务场景指定。根据用户I
 4.  \[3MB,4MB)会从第3个Segment的0位置开始写入，长度为一个条带大小：1MB；
 5.  \[4MB,5MB)会从第4个Segment的0位置开始写入，长度为一个条带大小：1MB。
 
+<img src="https://zdbs.io/devguide/media/logicw.png" />
+
 引入条带策略的目的是用户在进行大块顺序写的时候保证用户的写请求均匀的落在所有数据盘上，保证磁盘级别的负载均衡，而不是对着某几块盘写，导致某些磁盘成为性能瓶颈。
 
 Coordinator根据数据的Offset计算好数据所在的Segment，会先根据Segment的Membership来决定数据发送的目标和发送的个数。Membership中包含了节点信息的节点状态，其中Primary、Secondary和JoinSecondary状态的Segment
@@ -227,3 +229,5 @@ DataNode在接收到Coordinator的写请求时会在内存中创建对应的Log�
 
 读请求先发送到Coordinator，Coordinator根据卷组成信息并通过条带策略计算出用户所需数据所在的Segment
 Index集合后，会同时向Segment中的主副本（Primary）发送读请求，向其他副本发送Check读请求，Check读请求只会检查Membership是否一致，Primary是否发生变化，而不会真正的读数据。这样做的好处是在Membership没有发生动荡的时候并不需要向多节点发送读请求从而提高性能，在发生动荡的时候又能及时感知变化，防止Membership发生脑裂，导致数据读取不一致情况产生。
+
+<img src="https://zdbs.io/devguide/media/logicr.png" />
