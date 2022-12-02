@@ -21,6 +21,7 @@ Content Index
   - User Manual
 - Developer Documentation
   - [How to Compile](#quick-start)
+  - [Developer's Guide](docs/devguide.md)
   - [Coding Standard](#coding-standard)
   - [Submit Your Code](#submit-your-code)
   - [License](LICENSE.md)
