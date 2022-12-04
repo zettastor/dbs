@@ -140,6 +140,20 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 - Apache Thrift 0.9.1
 - Protocol Buffers 3.5.1
 
+请确认下列命令行在系统的 PATH 环境变量中，并能返回正确的版本号，例如：
+```
+mvn --version
+Apache Maven 3.6.3
+Maven home: /usr/share/maven
+Java version: 11.0.17, vendor: Ubuntu, runtime: /usr/lib/jvm/java-11-openjdk-amd64
+
+thrift --version
+Thrift version 0.9.1
+
+protoc --version
+libprotoc 3.5.1
+```
+
 一般来说，最便捷的方法是下载预编译的二进制文件。如果要从源代码编译二进制文件，请参阅下列章节。
 
 #### Apache Thrift
