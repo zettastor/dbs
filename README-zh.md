@@ -83,7 +83,7 @@ DBS 的第一个商用版本是按照电信运营商的规范要求来完善的�
 
 ## 1、准备编译环境
 
-### RHEL(CentOS) 7
+### RHEL/CentOS 7
 ```bash
 yum install epel-release
 yum -y install git java-1.8.0-openjdk-devel thrift curl unzip
@@ -102,7 +102,7 @@ curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/pr
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
-### RHEL(CentOS) 8
+### RHEL/CentOS 8
 ```bash
 yum install epel-release
 yum install git net-tools maven compat-openssl10 protobuf-compiler
@@ -118,20 +118,35 @@ curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/pr
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
-### Debian 10 / Debian 11 / Ubuntu 18 / Ubuntu 20
+### Debian 10/11, Ubuntu 18/20
 ```bash
 sudo apt-get update
-sudo apt-get install git net-tools curl maven protobuf-compiler
+sudo apt-get install git net-tools curl openjdk-11-jdk maven protobuf-compiler
 curl -LO http://ftp.debian.org/debian/pool/main/t/thrift-compiler/thrift-compiler_0.9.1-2.1+b1_amd64.deb
 sudo dpkg -i thrift-compiler_0.9.1-2.1+b1_amd64.deb
 ```
 
-### openSUSE 15
+### SUSE/SLES 15
 ```bash
 zypper install net-tools-deprecated curl unzip maven thrift
 curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
+
+### 其他架构和平台
+要编译 ZettaStor DBS，您需要：
+- Java Development Kit (JDK) 11
+- Apache Maven 3.5
+- Apache Thrift 0.9.1
+- Protocol Buffers 3.5.1
+
+一般来说，最便捷的方法是下载预编译的二进制文件。如果要从源代码编译二进制文件，请参阅下列章节。
+
+#### Apache Thrift
+要从源代码编译 Thrift，请查看 [安装说明](https://thrift.apache.org/docs/install/)。请注意各个操作系统可能有相关的特定要求。
+
+#### Protocol Buffers (Protobuf)
+首先检查您是否可以下载 [protobuf 3.5.1 预编译二进制文件](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1)。如果要从源代码编译 protoc 二进制文件，请查看 [安装说明](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md)。
 
 ## 2、开始编译
 在`pengyun-root/pom.xml`所在目录，使用下列 Maven 命令编译软件包：

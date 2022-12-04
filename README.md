@@ -83,7 +83,7 @@ If you're on Linux, the packages required for compilation can be installed by th
 
 ## 1. Setup a development environment
 
-### RHEL(CentOS) 7
+### RHEL/CentOS 7
 ```bash
 yum install epel-release
 yum -y install git java-1.8.0-openjdk-devel thrift curl unzip
@@ -103,7 +103,7 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 
 ```
 
-### RHEL(CentOS) 8
+### RHEL/CentOS 8
 ```bash
 yum install epel-release
 yum install git net-tools maven compat-openssl10 protobuf-compiler
@@ -119,23 +119,38 @@ curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/pr
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
-### Debian 10 / Debian 11 / Ubuntu 18 / Ubuntu 20
+### Debian 10/11, Ubuntu 18/20
 ```bash
 sudo apt-get update
-sudo apt-get install git net-tools curl maven protobuf-compiler
+sudo apt-get install git net-tools curl openjdk-11-jdk maven protobuf-compiler
 curl -LO http://ftp.debian.org/debian/pool/main/t/thrift-compiler/thrift-compiler_0.9.1-2.1+b1_amd64.deb
 sudo dpkg -i thrift-compiler_0.9.1-2.1+b1_amd64.deb
 ```
 
-### openSUSE 15
+### SUSE/SLES 15
 ```bash
 zypper install net-tools-deprecated curl unzip maven thrift
 curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
+### Other Architecture and Platform
+To compile ZettaStor DBS, you need:
+- Java Development Kit (JDK) 11
+- Apache Maven 3.5
+- Apache Thrift 0.9.1
+- Protocol Buffers 3.5.1
+
+As a general rule, the simplest way is to download a pre-built binary. If you would like to build from source code, please refer to the sections below for details.
+
+#### Apache Thrift
+To build Thrift from source look at [installation instructions](https://thrift.apache.org/docs/install/). Pay attention to the OS notes, there are are some system specific requirements.
+
+#### Protocol Buffers (Protobuf)
+First check whether you can download a [protobuf 3.5.1 pre-built binary](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1). If you would like to build protoc binary from source, see the [installation instructions](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md).
+
 ## III. Compiling the code
-To build the package, Use the following commands in the directory where `pengyun-root/pom.xml` is located
+To build the package, use the following commands in the directory where `pengyun-root/pom.xml` is located
 ```bash
 # Update version number from system environment
 mvn versions:set-property -Dproperty=libthrift.version -DnewVersion=$(thrift --version | awk '{print $3}')
