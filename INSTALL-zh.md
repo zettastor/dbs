@@ -19,7 +19,7 @@ DBS 安装包通常包含如下两个文件：
 `pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz`   
 
 1. 将上述安装包放到部署节点（例如集群的第1个节点）的 `/opt/deploy/` 目录
-```
+```bash
 cd /opt/deploy
 # 列出/opt/deploy目录文件
 ls
@@ -27,18 +27,17 @@ Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34
 ```
 
 2. 解压 `Installation` 安装工具
-```
+```bash
 tar -zxf Installation-3.0.0.tar.gz && rm Installation-3.0.0.tar.gz
 # 列出/opt/deploy目录文件
 ls
 Installation  pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz
-
 ```
 
 ### 二、修改配置
 
 执行下列命令，按照提示填写相关配置即可
-```
+```bash
 cd /opt/deploy/Installation
 LANGUAGE=zh_CN ./install.sh
 ```
@@ -228,7 +227,7 @@ LANGUAGE=zh_CN ./install.sh -b
 
 ### 四、清除部署
 如果需要清除已经部署的 DBS，执行下列命令：
-```
+```bash
 cd /opt/deploy/Installation
 perl product_block_storage_operation.pl -o wipeout
 ```

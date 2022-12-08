@@ -109,7 +109,7 @@ MD5值：`dc5932260da8f26bcdce0c7ebf0f59ca`
 系统安装完毕之后：
 
 版本信息
-```
+```bash
 cat /etc/*release | grep PRETTY_NAME):
 
 PRETTY_NAME="CentOS Linux 7 (Core)"
@@ -119,7 +119,7 @@ PRETTY_NAME="CentOS Linux 7 (Core)"
 ```
 uname -a
 
-Linux localhost.localdomain 3.10.0-1062.el7.x86_64 \#1 SMP Wed Aug 7
+Linux localhost.localdomain 3.10.0-1062.el7.x86_64 #1 SMP Wed Aug 7
 18:08:02 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
@@ -130,7 +130,7 @@ Linux localhost.localdomain 3.10.0-1062.el7.x86_64 \#1 SMP Wed Aug 7
 需要使用命令 `lspci` 识别 IB 卡的型号，在 CentOS 系统上可以使用 `yum install 
 pciutils` 来安装该软件包。
 
-```
+```bash
 lspci | grep Mellanox
 ```
 
@@ -138,7 +138,7 @@ lspci | grep Mellanox
 
 http://cn.mellanox.com/page/products_dyn?product_family=26&mtag=linux_sw_drivers
 
-```
+```bash
 tar zxf MLNX_OFED_LINUX-*.tar.gz
 cd MLNX_OFED_LINUX-*
 ./mlnxofedinstall

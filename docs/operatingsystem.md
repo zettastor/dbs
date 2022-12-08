@@ -51,53 +51,53 @@ Use USB drive or CD-ROM to start the OS installation interface.
 
 Select language as English
 
-<img src="https://zdbs.io/operatingsystem/media//image2.png" />
+<img src="https://zdbs.io/operatingsystem/media/image2.png" />
 
 Set the time zone
 
-<img src="https://zdbs.io/operatingsystem/media//image3.png" />
+<img src="https://zdbs.io/operatingsystem/media/image3.png" />
 
 Software selection
 
-<img src="https://zdbs.io/operatingsystem/media//image4.png" />
+<img src="https://zdbs.io/operatingsystem/media/image4.png" />
 
 Select the `Compute Node` mode in the software list. The Add-ons on the right are not required.
 
-<img src="https://zdbs.io/operatingsystem/media//image5.png" />
+<img src="https://zdbs.io/operatingsystem/media/image5.png" />
 
 Start the system partition configuration
 
-<img src="https://zdbs.io/operatingsystem/media//image6.png" />
+<img src="https://zdbs.io/operatingsystem/media/image6.png" />
 
 Select the disk on which the OS is installed, and then select `I will configure partitioning`.
 
-<img src="https://zdbs.io/operatingsystem/media//image7.png" />
+<img src="https://zdbs.io/operatingsystem/media/image7.png" />
 
 Change the partition mode to `Standard Partition`
 
-<img src="https://zdbs.io/operatingsystem/media//image8.png" />
+<img src="https://zdbs.io/operatingsystem/media/image8.png" />
 
 After selecting the `Standard Partition` mode, click `create them automatically` to adjust the partition.
 
-<img src="https://zdbs.io/operatingsystem/media//image9.png" />
+<img src="https://zdbs.io/operatingsystem/media/image9.png" />
 
 After the adjustment, only `/boot` and `/` partitions remain. All remaining space of the system disk is allocated to the root partition, and the file system format of the root partition is recommended to be `ext4` format
 
-<img src="https://zdbs.io/operatingsystem/media//image10.png" />
+<img src="https://zdbs.io/operatingsystem/media/image10.png" />
 
 (Here is a method to set the size of the root partition: After deleting the unnecessary partitions, select the root partition, set the size of the root partition to a capacity larger than the entire system disk, and then adjust the file system format of the root partition to `ext4`. The system will automatically allocate as much free space as possible to the root partition)
 
 `Accept Changes` of the partition configuration and write to the disk
 
-<img src="https://zdbs.io/operatingsystem/media//image11.png" />
+<img src="https://zdbs.io/operatingsystem/media/image11.png" />
 
 The IP address of the node can be configured here.
 
-<img src="https://zdbs.io/operatingsystem/media//image12.png" />
+<img src="https://zdbs.io/operatingsystem/media/image12.png" />
 
 Configure the password for the root user during installation. No other users need to be created.
 
-<img src="https://zdbs.io/operatingsystem/media//image13.png" />
+<img src="https://zdbs.io/operatingsystem/media/image13.png" />
 
 After the system is installed, restart it and check whether you can enter the system correctly.
 
@@ -106,7 +106,7 @@ After the system is installed, restart it and check whether you can enter the sy
 After the system is installed:
 
 version information
-```
+```bash
 cat /etc/*release | grep PRETTY_NAME):
 
 PRETTY_NAME="CentOS Linux 7 (Core)"
@@ -127,15 +127,15 @@ Linux localhost.localdomain 3.10.0-1062.el7.x86_64 \#1 SMP Wed Aug 7
 Use the command `lspci` to identify the model of the IB card, you can use `yum install
 pciutils` on CentOS to install the package.
 
-````
+```bash
 lspci | grep Mellanox
-````
+```
 
 Download the corresponding driver according to the operating system type
 
 http://cn.mellanox.com/page/products_dyn?product_family=26&mtag=linux_sw_drivers
 
-```
+```bash
 tar zxf MLNX_OFED_LINUX-*.tar.gz
 cd MLNX_OFED_LINUX-*
 ./mlnxofedinstall
@@ -172,7 +172,7 @@ Take CentOS 7 as an example.
 
 Use the ISO image to make a USB boot drive (the production method is relatively simple, you can search for relevant information on the Internet). Then change the boot order of the server to boot from USB first. After the server boots, the following interface should appear:
 
-<img src="https://zdbs.io/operatingsystem/media//image33.png" />
+<img src="https://zdbs.io/operatingsystem/media/image33.png" />
 
 When entering the installation interface, Press the `Tab` key and modify the command to the following:
 
@@ -189,20 +189,20 @@ In some cases, the RAID card cannot read the hard disk information correctly due
 
 Enter the BIOS menu. Select `Socket Configuration` under `Advanced` on the left
 
-<img src="https://zdbs.io/operatingsystem/media//image34.png" />
+<img src="https://zdbs.io/operatingsystem/media/image34.png" />
 
 Select `IIO Configuration` in `Socket Configuration`
 
-<img src="https://zdbs.io/operatingsystem/media//image35.png" />
+<img src="https://zdbs.io/operatingsystem/media/image35.png" />
 
 
 Change `Enabled` to `Disabled` in `IIO Configuration` - `Intel(R) VT for Directed I/O(VT-d)`
 
-<img src="https://zdbs.io/operatingsystem/media//image36.png" />
+<img src="https://zdbs.io/operatingsystem/media/image36.png" />
 
 Change `Enabled` to `Disabled` in `Advanced` - `Console Redirection`
 
-<img src="https://zdbs.io/operatingsystem/media//image37.png" />
+<img src="https://zdbs.io/operatingsystem/media/image37.png" />
 
 ### "NMI watchdog: soft lockup CPU stuck" during boot
 

@@ -17,26 +17,25 @@ The installation package of DBS usually consists of the following two files:
 `pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz`
 
 1. Put the above packages into the `/opt/deploy/` directory of deployment node (e.g. the first node of the cluster)
-````
+```bash
 cd /opt/deploy
 # list files in /opt/deploy directory
 ls
-Installation-3.0.0.tar.gz pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz
-````
+Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz
+```
 
 2. Unzip the `Installation` toolkit
-````
+```bash
 tar -zxf Installation-3.0.0.tar.gz && rm Installation-3.0.0.tar.gz
 # list files in /opt/deploy directory
 ls
-Installation pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz
-
-````
+Installation  pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz
+```
 
 ### II. Configuration Wizard
 
 Execute the following commands and follow the prompts to customize the relevant configuration.
-```
+```bash
 cd /opt/deploy/Installation
 ./install.sh
 ```
@@ -228,7 +227,7 @@ If there is an error, the script will report and exit, please review the warning
 
 ### IV. Undeploying
 To cleanup the deployed DBS software, execute the following command.
-```
+```bash
 cd /opt/deploy/Installation
 perl product_block_storage_operation.pl -o wipeout
 ```

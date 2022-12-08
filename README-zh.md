@@ -81,7 +81,7 @@ DBS 的第一个商用版本是按照电信运营商的规范要求来完善的�
 
 在 Linux 系统下，可以通过键入下列命令安装编译所需要的软件包：
 
-## 1、准备编译环境
+## 一、准备编译环境
 
 ### RHEL/CentOS 7
 ```bash
@@ -141,7 +141,7 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 - Protocol Buffers 3.5.1
 
 请确认下列命令行在系统的 PATH 环境变量中，并能返回正确的版本号，例如：
-```
+```bash
 mvn --version
 Apache Maven 3.6.3
 Maven home: /usr/share/maven
@@ -160,9 +160,50 @@ libprotoc 3.5.1
 要从源代码编译 Thrift，请查看 [安装说明](https://thrift.apache.org/docs/install/)。请注意各个操作系统可能有相关的特定要求。
 
 #### Protocol Buffers (Protobuf)
-首先检查您是否可以下载 [protobuf 3.5.1 预编译二进制文件](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1)。如果要从源代码编译 protoc 二进制文件，请查看 [安装说明](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md)。
+首先检查您是否可以下载 [Protobuf 3.5.1 预编译二进制文件](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1)。如果要从源代码编译 protoc 二进制文件，请查看 [安装说明](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md)。
 
-## 2、开始编译
+## 二、下载代码
+ZettaStor DBS 的仓库必须按特定的层次结构组织目录，请使用下列命令下载源代码：
+```bash
+ROOT_PATH=$1
+
+git clone --depth 1 -b 1.0.0 file://$ROOT_PATH/pengyun-root
+pushd pengyun-root
+
+git clone --depth 1 -b 1.0.0 file://$ROOT_PATH/pengyun-root/pengyun-lib
+pushd pengyun-lib
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-core
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-database_core
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-models
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_model
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_client
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-query_log
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-configuration
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-monitor_common
+popd
+
+git clone --depth 1 -b 1.0.x-OS file://$ROOT_PATH/pengyun-root/pengyun-dbs
+pushd pengyun-dbs
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/dbs-dnmodel
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/dbs-models_related
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-driver_core
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-coordinator
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-infocenter
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-drivercontainer
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-deployment_daemon
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-system_daemon
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_core
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_service
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-webservice_adapter
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-utils
+git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-console
+popd
+
+popd
+```
+
+## 三、开始编译
 在`pengyun-root/pom.xml`所在目录，使用下列 Maven 命令编译软件包：
 ```bash
 # 根据系统环境更新版本号
