@@ -90,7 +90,7 @@ yum -y install git java-1.8.0-openjdk-devel thrift curl unzip
 
 # Install a newer version of Apache Maven
 curl -LO https://downloads.apache.org/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
-tar -zxvf apache-maven-3.5.4-bin.tar.gz --directory /opt
+tar -xvf apache-maven-3.5.4-bin.tar.gz --directory /opt
 ln -s /opt/apache-maven-3.5.4 /opt/maven
 chown -R root:root /opt/maven
 echo '# Apache Maven Environment Variables' > /etc/profile.d/maven.sh
@@ -133,24 +133,49 @@ curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/pr
 unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```
 
+### macOS Catalina (10.15) or higher
+```zsh
+# Install Homebrew package manager
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install JDK
+brew install openjdk@11
+sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+
+# Install Apache Maven
+curl -LO https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+tar -xvf apache-maven-3.6.3-bin.tar.gz
+sudo mv apache-maven-3.6.3 /opt/
+export M2_HOME="/opt/apache-maven-3.6.3"
+export PATH="${M2_HOME}/bin:${PATH}"
+
+# Install Protocol Buffers
+curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-osx-x86_64.zip
+sudo unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
+
+# Install Apache Thrift
+brew install thrift@0.9
+export PATH="/usr/local/opt/thrift@0.9/bin:$PATH"
+```
+
 ### Other Architecture and Platform
 To compile ZettaStor DBS, you need:
 - Java Development Kit (JDK) 11
-- Apache Maven 3.5
-- Apache Thrift 0.9.1
-- Protocol Buffers 3.5.1
+- Apache Maven 3.5 or higher
+- Apache Thrift 0.9.x
+- Protocol Buffers 3.5.1 or higher
 
 Please make sure that the following command is in the PATH environment variable of the system and returns the correct version number, for example:
-```bash
-mvn --version
+```
+$ mvn --version
 Apache Maven 3.6.3
 Maven home: /usr/share/maven
 Java version: 11.0.17, vendor: Ubuntu, runtime: /usr/lib/jvm/java-11-openjdk-amd64
 
-thrift --version
+$ thrift --version
 Thrift version 0.9.1
 
-protoc --version
+$ protoc --version
 libprotoc 3.5.1
 ```
 
@@ -167,37 +192,37 @@ The repositories of ZettaStor DBS must be organized in a hierarchy structure, us
 ```bash
 ROOT_PATH=$1
 
-git clone --depth 1 -b 1.0.0 file://$ROOT_PATH/pengyun-root
+git clone --depth 1 -b 1.0.0 $ROOT_PATH/pengyun-root
 pushd pengyun-root
 
-git clone --depth 1 -b 1.0.0 file://$ROOT_PATH/pengyun-root/pengyun-lib
+git clone --depth 1 -b 1.0.0 $ROOT_PATH/pengyun-root/pengyun-lib
 pushd pengyun-lib
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-core
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-database_core
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-models
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_model
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_client
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-query_log
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-configuration
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-lib/pengyun-monitor_common
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-core
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-database_core
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-models
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_model
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-dih_client
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-query_log
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-configuration
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-lib/pengyun-monitor_common
 popd
 
-git clone --depth 1 -b 1.0.x-OS file://$ROOT_PATH/pengyun-root/pengyun-dbs
+git clone --depth 1 -b 1.0.x-OS $ROOT_PATH/pengyun-root/pengyun-dbs
 pushd pengyun-dbs
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/dbs-dnmodel
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/dbs-models_related
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-driver_core
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-coordinator
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-infocenter
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-drivercontainer
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-deployment_daemon
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-system_daemon
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_core
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_service
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-webservice_adapter
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-utils
-git clone --depth 1 -b feature/open_source file://$ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-console
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/dbs-dnmodel
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/dbs-models_related
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-driver_core
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-coordinator
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-infocenter
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-drivercontainer
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-deployment_daemon
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-system_daemon
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_core
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode_service
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-datanode
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-webservice_adapter
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-utils
+git clone --depth 1 -b feature/open_source $ROOT_PATH/pengyun-root/pengyun-dbs/pengyun-console
 popd
 
 popd
