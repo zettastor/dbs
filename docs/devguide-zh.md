@@ -29,10 +29,6 @@ DBS由一系列承担不同任务的软件模块构成，通过模块之间的�
 
 InfoCenter是系统的信息中心，负责从DataNode获取包括DataNode和后端存储资源信息、块设备挂载和使用信息、及账户信息在内的各类信息，供MonitorServer及Console使用。
 
-- __SystemDaemon__
-
-SystemDaemon作为监控探针，用于检测节点硬件信息以及存储各类服务产生的日志信息。
-
 - __Console__
 
 Console为系统的控制台，用户可以通过Web浏览器方式进行系统配置、查看各类系统信息，包括：各部件运行状态，各类故障或告警，以及I/O性能数据及报告等操作。

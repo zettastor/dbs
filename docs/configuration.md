@@ -58,7 +58,6 @@ For the service name XXX in the above table, please refer to the following infor
 |-------------------|-------------------------------------------------------------------------------------|
 | DIH               | All nodes in the cluster                                          |
 | InfoCenter        | Usually 2-3 nodes in the cluster, it is recommended that the selected nodes should be in different groups |
-| SystemDaemon      | All nodes in the cluster |
 | DriverContainer   | Configure as required, usually all nodes in the cluster |
 | DataNode          | The node that provides storage resources, usually all nodes in the cluster |
 | Console           | Usually one or more nodes. If multiple nodes are configured, it is recommended that the selected nodes should be in different groups |
@@ -306,15 +305,6 @@ This is a separate description for the JVM configuration of InfoCenter, which is
 | **Attribute Name**    | **Default Value** | **Description**                      |
 | initial.mem.pool.size | 1024m        | Initial memory allocation size at runtime |
 | max.mem.pool.size     | 2048m        | The maximum memory allocatable during runtime. This value is related to the number of segment units. If the number of segment units is less than 20,000, it is recommended to configure this value to 2G. If the number of segment units exceeds 20,000, increase 1G on every 10,000 units, and the total number of segment units should not exceed 100,000 |
-
-### SystemDaemon Configuration
-
-#### systemdaemon.properties
-
-|                 |              |                                          |
-|-----------------|--------------|------------------------------------------|
-| **Attribute Name**    | **Default Value** | **Description**               |
-| record.save.day       | 15                | Eventdata data retention time |
 
 ## Updating Configuration
 

@@ -36,12 +36,11 @@ ZettaStor
 DBS可以为客户机提供QoS保障,并通过数据负载均衡（Rebalance）、数据重构（Rebuild）等功能，为系统提供高可靠、高性能保证。
 
 ZettaStor
-DBS包括InfoCenter、SystemDaemon、DriverContainer、DataNode、DIH、Console、Coordinator、deployment_daemon等软件模块：
+DBS包括InfoCenter、DriverContainer、DataNode、DIH、Console、Coordinator、deployment_daemon等软件模块：
 
 - deployment_daemon主要用于部署、启动其它软件模块；
 - DIH监控管理本节点所有服务的服务状态；
 - InfoCenter是系统的信息中心，管理系统的配置信息（元数据信息）、性能和告警数据。元数据信息包括系统中所有的Volume信息、DataNode信息、账户信息。
-- SystemDaemon用于监控节点硬件信息以及读取并转发服务节点的部分硬件信息；
 - DriverContainer为系统的网络驱动容器，管理系统的所有网络驱动。当DriverContainer从外部接收挂载Volume的请求时，从容器中选择一个驱动同Volume挂载起来供客户机使用。目前支持标准的ISCSI（互联网小型计算机系统接口）协议和自研PYD协议；
 - DataNode为存储模块，每个存储节点上都部署DataNode服务。DataNode管理存储节点上的所有用于存储的未分区的磁盘，并接收网络驱动发过来的读写请求，进行硬盘读写操作。DataNode集群采用P2P协议，各个DataNode上保存各自的元数据信息，并向其它的DataNode模块通报，因此无需元数据中央节点；一个Volume由多个Segment（分片）组成，Segment分布在不同的DataNode上，DataNode负责控制信息在哪一个Segment。Volume信息包括Volume所有的Segment信息和Volume的挂载信息。其中Segment信息中包含Segment到DataNode的映射关系。DataNode信息包含DataNode的存储资源，具体为每个DataNode总共有多少空间、已使用多少空间、还有多少空间可以使用；
 - Console是系统的操作管理主要入口，提供Web界面供用户管理整个系统，包括账户管理、保护域管理、存储池、卷管理、服务管理等操作。
@@ -1204,7 +1203,7 @@ Unit分布，磁盘空间得到充分使用，卷的性能得到最大化的发�
 
 #### 服务界面
 
-服务界面向用户展示系统当前所有服务器上的服务列表及服务状态，包括DataNode、DIH、DriverContainer、InfoCenter、SystemDaemon五项服务。<img src="https://zdbs.io/manual/media/image145.png"
+服务界面向用户展示系统当前所有服务器上的服务列表及服务状态，包括DataNode、DIH、DriverContainer、InfoCenter等服务。<img src="https://zdbs.io/manual/media/image145.png"
 alt="Screenshot from 2019-01-08 18-04-03" />代表服务是正常状态，<img src="https://zdbs.io/manual/media/image146.png"
 alt="Screenshot from 2019-01-08 18-05-50" />代表服务是告警状态，<img src="https://zdbs.io/manual/media/image147.png"
 alt="Screenshot from 2019-01-08 18-05-05" />代表服务是异常状态，<img src="https://zdbs.io/manual/media/image148.png"
