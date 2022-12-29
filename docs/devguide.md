@@ -4,7 +4,7 @@
 
 The functional structure of ZettaStor DBS is shown in the figure below. The Storage Resource Layer is composed of standard servers and ethernet devices, responsible for providing the underlying physical resources for the storage system; the Storage Platform Layer is responsible for the construction of distributed systems and the implementation of core functions; the Storage Service Layer is responsible for providing clients with enterprise-level functional features, storage resource services that meet high reliability and high availability requirements of enterprise-level environments; the Storage Interface Layer is responsible for providing relevant protocols and interfaces to access client storage resources; Storage Management is responsible for the implementation of various management functions within the system, and it provides an operating interface for administrators, it is also responsible for providing APIs or specific integration interfaces for cloud platforms or third-party platforms.
 
-<img src="https://zdbs.io/devguide/media/image1.png" />
+<img src="https://zdbs.io/devguide/media/image1mod.png" />
 
 ### Software Architecture
 
@@ -140,16 +140,6 @@ The internal format of Archives under ZettaStor DBS management is shown below. A
 ### Data Volume Creation
 
 ZettaStor DBS provides storage resources to client hosts in the form of data volumes, and clients use data volumes just like using regular local disks.
-
-### Caching Mechanism
-
-ZettaStor DBS adopts multi-level, distributed cache. A special area in the memory of each storage node server is allocated as the first-level cache; the solid-state disk (SAS/SATA or PCI-e interface) inside each storage node server can be used as an optional second-level cache. The two-level cache models are managed in a unified manner. 
-
-The cache areas of each node are in a fully symmetrical distribution with Shared-Nothing Architecture (SNA). These cache areas are highly independent and autonomous while at the same time working efficiently and collaboratively based on P2P protocols and patented technologies.
-
-<img src="https://zdbs.io/devguide/media/image7.png" />
-
-The page replacement algorithm of the cache space adopts LRU (Least Recently Used) algorithm. The data blocks with the least recent use frequency are removed from the cache to make room for loading other newly requested data blocks for a higher cache hit rate.
 
 ### I/O Write Process
 

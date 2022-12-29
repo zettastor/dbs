@@ -42,7 +42,7 @@ ZettaStor DBS 分为社区版（开源）和商业版。社区版的源代码在
 
 ZettaStor DBS（分布式块存储系统）是鹏云网络研发的第一款产品，于2015年正式发布v1.0，主要应用于企业的云计算环境。
 
-DBS 的第一个商用版本是按照电信运营商的规范要求来完善的，通过了三大运营的测试，达到电信级设备的要求。近几年 DBS 针对金融行业进行了打磨，按照金融行业要求进一步加强了稳定性和可靠性，已在金融行业关键业务场景稳定运行近2年。
+DBS 的第一个商用版本是按照电信运营商的规范要求来完善的，通过了三大运营的测试，达到电信级设备的要求。近几年 DBS 针对金融行业进行了打磨，按照金融行业要求进一步加强了稳定性和可靠性，已在金融行业关键业务场景稳定运行近4年。
 
 如今，DBS 完成了从“电信级”到“金融级”的跃升，是一款高起点、高要求的分布式存储产品，能够满足市场不断变化的新需求。
 
@@ -84,36 +84,36 @@ ZettaStor DBS 的仓库必须按特定的层次结构组织目录，请使用下
 ```bash
 ROOT_PATH=$1
 
-git clone -b 1.0.0 $ROOT_PATH:main/pengyun-root
+git clone -b 1.0-OS $ROOT_PATH/pengyun-root
 pushd pengyun-root
 
-git clone -b 1.0.0 $ROOT_PATH:main/pengyun-lib
+git clone -b 1.0-OS $ROOT_PATH/pengyun-root/pengyun-lib
 pushd pengyun-lib
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-core
-git clone -b feature/open_source $ROOT_PATH:database/pengyun-database_core
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-models
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-dih_model
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-dih_client
-git clone -b feature/open_source $ROOT_PATH:monitor/pengyun-query_log
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-configuration
-git clone -b feature/open_source $ROOT_PATH:monitor/pengyun-monitor_common
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-core
+git clone -b 1.0-OS $ROOT_PATH:database/pengyun-database_core
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-models
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-dih_model
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-dih_client
+git clone -b 1.0-OS $ROOT_PATH:monitor/pengyun-query_log
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-configuration
+git clone -b 1.0-OS $ROOT_PATH:monitor/pengyun-monitor_common
 popd
 
-git clone -b 1.0.x-OS $ROOT_PATH:main/pengyun-dbs
+git clone -b 1.0-OS $ROOT_PATH/pengyun-root/pengyun-dbs
 pushd pengyun-dbs
-git clone -b feature/open_source $ROOT_PATH:dbs/dbs-dnmodel
-git clone -b feature/open_source $ROOT_PATH:dbs/dbs-models_related
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-driver_core
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-coordinator
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-infocenter
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-drivercontainer
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-deployment_daemon
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-datanode_core
-git clone -b feature/open_source $ROOT_PATH:datanode/pengyun-datanode_service
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-datanode
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-webservice_adapter
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-utils
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-console
+git clone -b 1.0-OS $ROOT_PATH:dbs/dbs-dnmodel
+git clone -b 1.0-OS $ROOT_PATH:dbs/dbs-models_related
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-driver_core
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-coordinator
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-infocenter
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-drivercontainer
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-deployment_daemon
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-datanode_core
+git clone -b 1.0-OS $ROOT_PATH:datanode/pengyun-datanode_service
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-datanode
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-webservice_adapter
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-utils
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-console
 popd
 
 popd
@@ -236,7 +236,12 @@ libprotoc 3.5.1
 # 根据系统环境更新版本号
 mvn versions:set-property -Dproperty=libthrift.version -DnewVersion=$(thrift --version | awk '{print $3}')
 mvn versions:set-property -Dproperty=protobuf.version -DnewVersion=$(protoc --version | awk '{print $2}')
-mvn clean install -Dcheckstyle.skip=true -DskipTests
+mvn clean install
+```
+
+您可以使用多线程并禁用单元测试来提高编译速度：
+```bash
+mvn -T 1C clean install -DskipTests
 ```
 
 # 更多文档
@@ -244,15 +249,15 @@ mvn clean install -Dcheckstyle.skip=true -DskipTests
 
 # 贡献代码
 
+## 提交代码
+完成代码开发后，您可以向 `1.0-OS` 分支提交拉取请求 (PR) 并填写拉取请求模板。
+
+我们在工程编译过程中引入了代码风格检查流程，请在提交代码之前检查编译结果，确保没有代码风格错误。虽然在审核您的 PR 之前必须满足上述先决条件，但审核者可能会要求您完成额外的设计工作、测试、或其他更改，然后才能最终接受 PR。
+
 ## 编码标准
 请在编辑器中设置2空格缩进后，查看和编辑本项目的源代码，每个缩进级别使用一次缩进。空格可用于一行内的其他对齐方式。
 
 大部分代码遵循 [Google Java 风格](https://google.github.io/styleguide/javaguide)；也有一些代码遵循 [Oracle 编码约定](https://www.oracle.com/java/technologies/javase/codeconventions-contents.html) —— 这主要取决于最初的版本。 重要的是，**您修改代码的时候请保持一致，并在修改现有源代码时将空格更改保持在最低限度。** 对于新代码，请使用 Google Java 风格。
-
-## 提交代码
-完成代码开发后，您应该向 master 分支提交拉取请求 (PR) 并填写拉取请求模板。拉取请求会自动触发持续整合 (CI) 流程，代码只有在通过 CI 并审核后才会被合并。 如果 CI 运行失败，您可以登录 Jenkins 平台查看失败原因。
-
-我们在工程编译过程中引入了代码风格检查流程，请在提交代码之前检查编译结果，确保没有代码风格错误。虽然在审核您的 PR 之前必须满足上述先决条件，但审核者可能会要求您完成额外的设计工作、测试、或其他更改，然后才能最终接受 PR。
 
 # 许可证
 [AGPL 3.0](LICENSE.md)

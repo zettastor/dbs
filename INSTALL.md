@@ -2,12 +2,12 @@
 
 ### Hardware Requirements
 
-Deployment of Distributed Block Storage (hereinafter "DBS") requires at least 3 nodes. For different usage scenarios and different customer environments, the configuration parameters may vary, please refer to [Advanced Configuration](configuration). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
+Deployment of Distributed Block Storage (hereinafter "DBS") requires at least 3 nodes. For different usage scenarios and different customer environments, the configuration parameters may vary, please refer to [Advanced Configuration](docs/configuration.md). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
 > For the convenience of explanation, the following documents use 3 nodes ( `192.168.1.10`, `192.168.1.11`, `192.168.1.12`) to illustrate the deployment use case.
 
 ### Software Requirements
 
-For a list of supported operating system and installation requirements, please refer to [OS Installation](operatingsystem) or contact the corresponding engineer for further information.
+For a list of supported operating system and installation requirements, please refer to [OS Installation](docs/operatingsystem.md) or contact the corresponding engineer for further information.
 
 ## Configuration and Deployment
 
@@ -223,7 +223,7 @@ If there is an error, the script will report and exit, please review the warning
 
 >Due to the number of cluster nodes, hardware configuration, disk configuration, etc., the deployment time varies greatly. Please wait patiently and do not interrupt the deployment operation.
 
-3. When the deployment is complete, the DBS web interface can be accessed through a browser, and the address is `http://192.168.1.10:8080` where `192.168.1.10` is the IP address of the “Web interface” configured in step 13 of the Configuration Wizard. For the usage of DBS, please refer to the [User Manual](manual).
+3. When the deployment is complete, the DBS web interface can be accessed through a browser, and the address is `http://192.168.1.10:8080` where `192.168.1.10` is the IP address of the “Web interface” configured in step 13 of the Configuration Wizard. For the usage of DBS, please refer to the [User Manual](docs/manual-zh.md).
 
 ### IV. Undeploying
 To cleanup the deployed DBS software, execute the following command.

@@ -42,7 +42,7 @@ ZettaStor DBS comes in two distributions: the Community Edition and Enterprise E
 
 ZettaStor DBS is the first product developed by Pengyun Network. Version 1.0 was officially released in 2015 and mainly adopted by cloud computing companies.
 
-The first commercial version of DBS is developed according to the standard requirements of telecom operators, and has passed the tests of China's three major telecom operators for telecom equipment applications. In recent years, DBS has been polished for the financial industry, its stability and reliability has been further strengthened and has been operating stably in key business scenarios for 2 years.
+The first commercial version of DBS is developed according to the standard requirements of telecom operators, and has passed the tests of China's three major telecom operators for telecom equipment applications. In recent years, DBS has been polished for the financial industry, its stability and reliability has been further strengthened and has been operating stably in key business scenarios for 4 years.
 
 ZettaStor DBS has completed the leap from telecom-grade to financial-grade. It is a distributed storage product with a high starting point and high requirements, which can meet the new and changing needs of the market.
 
@@ -85,36 +85,36 @@ The repositories of ZettaStor DBS must be organized in a hierarchy structure, us
 ```bash
 ROOT_PATH=$1
 
-git clone -b 1.0.0 $ROOT_PATH:main/pengyun-root
+git clone -b 1.0-OS $ROOT_PATH/pengyun-root
 pushd pengyun-root
 
-git clone -b 1.0.0 $ROOT_PATH:main/pengyun-lib
+git clone -b 1.0-OS $ROOT_PATH/pengyun-lib
 pushd pengyun-lib
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-core
-git clone -b feature/open_source $ROOT_PATH:database/pengyun-database_core
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-models
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-dih_model
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-dih_client
-git clone -b feature/open_source $ROOT_PATH:monitor/pengyun-query_log
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-configuration
-git clone -b feature/open_source $ROOT_PATH:monitor/pengyun-monitor_common
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-core
+git clone -b 1.0-OS $ROOT_PATH:database/pengyun-database_core
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-models
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-dih_model
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-dih_client
+git clone -b 1.0-OS $ROOT_PATH:monitor/pengyun-query_log
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-configuration
+git clone -b 1.0-OS $ROOT_PATH:monitor/pengyun-monitor_common
 popd
 
-git clone -b 1.0.x-OS $ROOT_PATH:main/pengyun-dbs
+git clone -b 1.0-OS $ROOT_PATH/pengyun-dbs
 pushd pengyun-dbs
-git clone -b feature/open_source $ROOT_PATH:dbs/dbs-dnmodel
-git clone -b feature/open_source $ROOT_PATH:dbs/dbs-models_related
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-driver_core
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-coordinator
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-infocenter
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-drivercontainer
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-deployment_daemon
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-datanode_core
-git clone -b feature/open_source $ROOT_PATH:datanode/pengyun-datanode_service
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-datanode
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-webservice_adapter
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-utils
-git clone -b feature/open_source $ROOT_PATH:main/pengyun-console
+git clone -b 1.0-OS $ROOT_PATH:dbs/dbs-dnmodel
+git clone -b 1.0-OS $ROOT_PATH:dbs/dbs-models_related
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-driver_core
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-coordinator
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-infocenter
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-drivercontainer
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-deployment_daemon
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-datanode_core
+git clone -b 1.0-OS $ROOT_PATH:datanode/pengyun-datanode_service
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-datanode
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-webservice_adapter
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-utils
+git clone -b 1.0-OS $ROOT_PATH:main/pengyun-console
 popd
 
 popd
@@ -127,7 +127,7 @@ If you're in a UNIX-like environment, the packages required for compilation can 
 ### RHEL/CentOS 7
 ```bash
 yum install epel-release
-yum -y install java-1.8.0-openjdk-devel thrift curl unzip
+yum -y install java-1.8.0-openjdk-devel thrift curl unzip wget perl-Data-Dumper perl-XML-Simple
 
 # Install a newer version of Apache Maven
 curl -LO https://downloads.apache.org/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
@@ -146,7 +146,7 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ### RHEL/CentOS 8
 ```bash
 yum install epel-release
-yum install maven compat-openssl10 protobuf-compiler
+yum install maven compat-openssl10 protobuf-compiler perl-Data-Dumper perl-XML-Simple
 yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/t/thrift-0.9.1-15.el7.x86_64.rpm
 ```
 
@@ -237,23 +237,28 @@ To build the package, use the following commands in the directory where `pengyun
 # Update version number from system environment
 mvn versions:set-property -Dproperty=libthrift.version -DnewVersion=$(thrift --version | awk '{print $3}')
 mvn versions:set-property -Dproperty=protobuf.version -DnewVersion=$(protoc --version | awk '{print $2}')
-mvn clean install -Dcheckstyle.skip=true -DskipTests
+mvn clean install
+```
+
+It is also possible to run maven with multiple threads and skip test to speed up the builds
+```bash
+mvn -T 1C clean install -DskipTests
 ```
 
 # Where can I find out more?
 [ZettaStor DBS Website](https://zdbs.io)
 
-# Contributing
+# How to Contribute
+
+## Submit Your Code
+After finishing the development of your code, you should submit a pull request to `1.0-OS` branch and fill out a pull request template. 
+
+An automated code style check has been added in the project compilation process. Please check the compilation result before submitting the code to ensure that there are no code style errors. While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer may ask you to complete additional design work, tests, or other changes before your pull request can be ultimately accepted.
 
 ## Coding standard
 Source code should be viewed and edited with your editor set to use two spaces per tab, with one tab used per indentation level. Spaces are used for other alignment within a line.
 
 Most parts of the code follow [Google Java Style](https://google.github.io/styleguide/javaguide.html); some parts of the code follow [Oracle's Code Conventions](https://www.oracle.com/java/technologies/javase/codeconventions-contents.html) -- mostly depending on who wrote the original version. Above all else, **be consistent with what you modify, and keep whitespace changes to a minimum when modifying existing source.** For new code, use Google Java Style.
-
-## Submit your code
-After finishing the development of your code, you should submit a pull request to master branch and fill out a pull request template. The pull request will trigger the CI automatically, and the code will only be merged after passing the CI and being reviewed. The Jenkins username and password of CI is netease/netease. If the CI fails to run, you can login to the Jenkins platform to view the reason for the failure. 
-
-An automated code style check has been added in the project compilation process. Please check the compilation result before submitting the code to ensure that there are no code style errors. While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer may ask you to complete additional design work, tests, or other changes before your pull request can be ultimately accepted.
 
 # License
 [AGPL 3.0](LICENSE.md)
