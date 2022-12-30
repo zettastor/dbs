@@ -28,9 +28,9 @@ Content Index
 
 # What is ZettaStor DBS？
 
-ZettaStor DBS provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by [Pengyun Network](https://www.pengyunnetwork.cn).
+[ZettaStor DBS](https://zdbs.io) provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by [Pengyun Network](https://www.pengyunnetwork.cn).
 
-ZettaStor DBS comes in two distributions: the Community Edition and Enterprise Edition. The source code for the Community Edition is distributed under the [AGPL 3.0](LICENSE.md) license.
+[ZettaStor DBS](https://zdbs.io) comes in two distributions: the Community Edition and Enterprise Edition. The source code for the Community Edition is distributed under the [AGPL 3.0](LICENSE.md) license.
 
 ## System Architecture Diagram
 <img src="assets/architecture_en.png" alt="System Architecture Diagram" width="50%">
@@ -40,11 +40,11 @@ ZettaStor DBS comes in two distributions: the Community Edition and Enterprise E
 
 # Technical Advantages
 
-ZettaStor DBS is the first product developed by Pengyun Network. Version 1.0 was officially released in 2015 and mainly adopted by cloud computing companies.
+[ZettaStor DBS](https://zdbs.io) is the first product developed by Pengyun Network. Version 1.0 was officially released in 2015 and mainly adopted by cloud computing companies.
 
 The first commercial version of DBS is developed according to the standard requirements of telecom operators, and has passed the tests of China's three major telecom operators for telecom equipment applications. In recent years, DBS has been polished for the financial industry, its stability and reliability has been further strengthened and has been operating stably in key business scenarios for 4 years.
 
-ZettaStor DBS has completed the leap from telecom-grade to financial-grade. It is a distributed storage product with a high starting point and high requirements, which can meet the new and changing needs of the market.
+[ZettaStor DBS](https://zdbs.io) has completed the leap from telecom-grade to financial-grade. It is a distributed storage product with a high starting point and high requirements, which can meet the new and changing needs of the market.
 
 - [x] __Decentralized Architecture__: A symmetric distributed architecture based on the decentralized blockchain network, eliminates traditional limitations and disadvantages on system scale, I/O performance, stability and reliability.
 - [x] __Large-scale Node Deployment__: Stable high-performance is constantly maintained at optimal conditions, with the deployment of tens of thousands of nodes. The product's capacity and performance scale linearly with more storage nodes.
@@ -54,7 +54,7 @@ ZettaStor DBS has completed the leap from telecom-grade to financial-grade. It i
 
 # Versions and Features
 
-The following table compares some key features between various versions of ZettaStor DBS.
+The following table compares some key features between various versions of [ZettaStor DBS](https://zdbs.io).
 
 | Features | Community Edition  | Enterprise Edition | 
 | ------------- | ------------- |  ------------- | 
@@ -83,38 +83,38 @@ The following table compares some key features between various versions of Zetta
 ## I. Downloading the Source
 The repositories of ZettaStor DBS must be organized in a hierarchy structure, use the following commands to download the source code:
 ```bash
-ROOT_PATH=$1
+export ROOT_PATH=git@github.com
 
-git clone -b 1.0-OS $ROOT_PATH/pengyun-root
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-root
 pushd pengyun-root
 
-git clone -b 1.0-OS $ROOT_PATH/pengyun-lib
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-lib
 pushd pengyun-lib
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-core
-git clone -b 1.0-OS $ROOT_PATH:database/pengyun-database_core
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-models
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-dih_model
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-dih_client
-git clone -b 1.0-OS $ROOT_PATH:monitor/pengyun-query_log
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-configuration
-git clone -b 1.0-OS $ROOT_PATH:monitor/pengyun-monitor_common
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-database_core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-models
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-dih_model
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-dih_client
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-query_log
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-configuration_common
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-monitor_common
 popd
 
-git clone -b 1.0-OS $ROOT_PATH/pengyun-dbs
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-dbs
 pushd pengyun-dbs
-git clone -b 1.0-OS $ROOT_PATH:dbs/dbs-dnmodel
-git clone -b 1.0-OS $ROOT_PATH:dbs/dbs-models_related
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-driver_core
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-coordinator
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-infocenter
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-drivercontainer
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-deployment_daemon
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-datanode_core
-git clone -b 1.0-OS $ROOT_PATH:datanode/pengyun-datanode_service
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-datanode
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-webservice_adapter
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-utils
-git clone -b 1.0-OS $ROOT_PATH:main/pengyun-console
+git clone -b 1.0-OS $ROOT_PATH:zettastor/dbs-dnmodel
+git clone -b 1.0-OS $ROOT_PATH:zettastor/dbs-models_related
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-driver_core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-coordinator
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-infocenter
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-drivercontainer
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-deployment_daemon
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-datanode_core
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-datanode_service
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-datanode
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-webservice_adapter
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-utils
+git clone -b 1.0-OS $ROOT_PATH:zettastor/pengyun-console
 popd
 
 popd

@@ -2,7 +2,10 @@
 
 ### Hardware Requirements
 
-Deployment of Distributed Block Storage (hereinafter "DBS") requires at least 3 nodes. For different usage scenarios and different customer environments, the configuration parameters may vary, please refer to [Advanced Configuration](docs/configuration.md). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
+- Deployment of Distributed Block Storage (hereinafter "DBS") requires at least 3 nodes. For different usage scenarios and different customer environments, the configuration parameters may vary, please refer to [Advanced Configuration](docs/configuration.md). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
+- With default configuration, each node requires at least 128 GB of RAM.
+- In addition to the operating system disk, each storage node requires at least one additional 1TB blank hard disk.
+
 > For the convenience of explanation, the following documents use 3 nodes ( `192.168.1.10`, `192.168.1.11`, `192.168.1.12`) to illustrate the deployment use case.
 
 ### Software Requirements
@@ -12,16 +15,16 @@ For a list of supported operating system and installation requirements, please r
 ## Configuration and Deployment
 
 ### I. Preparing for Installation
-The installation package of DBS usually consists of the following two files:
+The installation package of DBS usually consists of the following two files:  
 `Installation-3.0.0.tar.gz`  
-`pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz`
+`pengyun-deploy-1.0.0-OS-*.tar.gz`
 
 1. Put the above packages into the `/opt/deploy/` directory of deployment node (e.g. the first node of the cluster)
 ```bash
 cd /opt/deploy
 # list files in /opt/deploy directory
 ls
-Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz
+Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
 ```
 
 2. Unzip the `Installation` toolkit
@@ -29,7 +32,7 @@ Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34
 tar -zxf Installation-3.0.0.tar.gz && rm Installation-3.0.0.tar.gz
 # list files in /opt/deploy directory
 ls
-Installation  pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz
+Installation  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
 ```
 
 ### II. Configuration Wizard

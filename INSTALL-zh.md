@@ -2,7 +2,10 @@
 
 ### 硬件需求
 
-分布式块存储软件(下称“DBS”)部署至少需要3个节点，针对不同的使用场景以及客户环境不同，配置参数有所不同，请参考 [高级配置与定制](docs/configuration-zh.md)。功能展示可以使用虚拟机进行部署，性能测试则应当使用高性能的物理服务器进行部署。
+- 分布式块存储软件(下称“DBS”)部署至少需要3个节点，针对不同的使用场景以及客户环境不同，配置参数有所不同，请参考 [高级配置与定制](docs/configuration-zh.md)。功能展示可以使用虚拟机进行部署，性能测试则应当使用高性能的物理服务器进行部署。
+- 在默认配置下，每个节点需要配置 128 GB 内存。
+- 每个存储节点除了操作系统盘之外，还需要配置至少 1 块 1TB 空白硬盘。
+
 > 为了方便说明，下列文档使用 `192.168.1.10`, `192.168.1.11`, `192.168.1.12` 3 个节点来说明部署用例。
 
 ### 软件需求
@@ -16,14 +19,14 @@
 
 DBS 安装包通常包含如下两个文件：  
 `Installation-3.0.0.tar.gz`  
-`pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz`   
+`pengyun-deploy-1.0.0-OS-*.tar.gz`   
 
 1. 将上述安装包放到部署节点（例如集群的第1个节点）的 `/opt/deploy/` 目录
 ```bash
 cd /opt/deploy
 # 列出/opt/deploy目录文件
 ls
-Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz
+Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
 ```
 
 2. 解压 `Installation` 安装工具
@@ -31,7 +34,7 @@ Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34
 tar -zxf Installation-3.0.0.tar.gz && rm Installation-3.0.0.tar.gz
 # 列出/opt/deploy目录文件
 ls
-Installation  pengyun-deploy-1.0.0-SNAPSHOT-OS-[2022-08-26_15-35-34].tar.gz
+Installation  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
 ```
 
 ### 二、修改配置
