@@ -245,6 +245,17 @@ It is also possible to run maven with multiple threads and skip test to speed up
 mvn -T 1C clean install -DskipTests
 ```
 
+## IV. Build Installation Package
+
+When compilation finishes, use the following command in the `pengyun-root/pengyun-dbs/` directory to make a new installation package:
+
+```bash
+mkdir -p /opt/deploy/
+perl bin/CreateDeployPackage.pl -d /opt/deploy
+```
+
+When the packaging process finishes, a new installation package will be saved in the `/opt/deploy` directory. For more detailed use of the installation package, please refer to [Getting Started](INSTALL.md).
+
 # Where can I find out more?
 [ZettaStor DBS Website](https://zdbs.io)
 

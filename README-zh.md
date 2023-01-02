@@ -244,6 +244,16 @@ mvn clean install
 mvn -T 1C clean install -DskipTests
 ```
 
+## 四、制作安装包
+
+编译完成后，在`pengyun-root/pengyun-dbs/`目录，使用下列命令制作安装包：
+```bash
+mkdir -p /opt/deploy/
+perl bin/CreateDeployPackage.pl -d /opt/deploy
+```
+
+打包完成后，新的安装包将保存在 `/opt/deploy` 目录，安装包的具体使用请参考 [快速配置与部署](INSTALL-zh.md)。
+
 # 更多文档
 请参阅 [ZettaStor DBS 官方网站](https://zdbs.io)
 
