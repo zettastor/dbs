@@ -123,10 +123,13 @@ popd
 
 在类 Unix 系统下，可以通过键入下列命令安装编译所需要的软件包：
 
+>**注意**  
+下列命令假设您已经具有足够权限，关于使用 `su` 或 `sudo` 等提权操作不再赘述。
+
 ### RHEL/CentOS 7
 ```bash
 yum install epel-release
-yum -y install java-1.8.0-openjdk-devel thrift curl unzip
+yum -y install java-1.8.0-openjdk-devel thrift curl unzip wget perl-Data-Dumper perl-XML-Simple
 
 # 安装新版 Apache Maven
 curl -LO https://downloads.apache.org/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
@@ -160,10 +163,10 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 
 ### Debian 10/11, Ubuntu 18/20
 ```bash
-sudo apt-get update
-sudo apt-get install curl openjdk-11-jdk maven protobuf-compiler
+apt-get update
+apt-get install curl openjdk-11-jdk maven protobuf-compiler
 curl -LO http://ftp.debian.org/debian/pool/main/t/thrift-compiler/thrift-compiler_0.9.1-2.1+b1_amd64.deb
-sudo dpkg -i thrift-compiler_0.9.1-2.1+b1_amd64.deb
+dpkg -i thrift-compiler_0.9.1-2.1+b1_amd64.deb
 ```
 
 ### SUSE/SLES 15
@@ -180,18 +183,18 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 
 # 安装 JDK
 brew install openjdk@11
-sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 
 # 安装 Apache Maven
 curl -LO https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 tar -xvf apache-maven-3.6.3-bin.tar.gz
-sudo mv apache-maven-3.6.3 /opt/
+mv apache-maven-3.6.3 /opt/
 export M2_HOME="/opt/apache-maven-3.6.3"
 export PATH="${M2_HOME}/bin:${PATH}"
 
 # 安装 Protocol Buffers
 curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/protoc-3.5.1-osx-x86_64.zip
-sudo unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
+unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
 
 # 安装 Apache Thrift
 brew install thrift@0.9
@@ -213,7 +216,7 @@ export PATH="/usr/local/opt/thrift@0.9/bin:$PATH"
 - Java Development Kit (JDK) 11
 - Apache Maven 3.5 或更高版本
 - Apache Thrift 0.9.x
-- Protocol Buffers 3.5.1 或更高版本
+- Protocol Buffers 3.5.1
 
 请确认下列命令行在系统的 PATH 环境变量中，并能返回正确的版本号，例如：
 ```
@@ -236,12 +239,12 @@ libprotoc 3.5.1
 # 根据系统环境更新版本号
 mvn versions:set-property -Dproperty=libthrift.version -DnewVersion=$(thrift --version | awk '{print $3}')
 mvn versions:set-property -Dproperty=protobuf.version -DnewVersion=$(protoc --version | awk '{print $2}')
-mvn clean install
+mvn clean install -Dproguard=off
 ```
 
 您可以使用多线程并禁用单元测试来提高编译速度：
 ```bash
-mvn -T 1C clean install -DskipTests
+mvn -T 1C clean install -Dproguard=off -DskipTests
 ```
 
 ## 四、制作安装包

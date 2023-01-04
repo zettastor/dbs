@@ -110,7 +110,7 @@ MD5值：`dc5932260da8f26bcdce0c7ebf0f59ca`
 
 版本信息
 ```bash
-cat /etc/*release | grep PRETTY_NAME):
+cat /etc/*release | grep PRETTY_NAME
 
 PRETTY_NAME="CentOS Linux 7 (Core)"
 ```

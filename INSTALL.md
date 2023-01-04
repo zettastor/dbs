@@ -2,9 +2,9 @@
 
 ### Hardware Requirements
 
-- Deployment of Distributed Block Storage (hereinafter "DBS") requires at least 3 nodes. For different usage scenarios and different customer environments, the configuration parameters may vary, please refer to [Advanced Configuration](docs/configuration.md). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
-- With default configuration, each node requires at least 128 GB of RAM.
-- In addition to the operating system disk, each storage node requires at least one additional 1TB blank hard disk.
+- Deployment of Distributed Block Storage (hereinafter "DBS") requires at least **3 nodes**. For different usage scenarios and different customer environments, the configuration parameters may vary, please refer to [Advanced Configuration](docs/configuration.md). A functional demo can be deployed using virtual machines, while performance testing should be deployed on high-performance physical servers.
+- With default configuration, each node requires at least **128 GB of RAM**; for a Proof of Concept deployment, each node requires **8 GB of RAM**.
+- In addition to the operating system disk, each storage node requires at least **one additional 1TB blank hard disk**.
 
 > For the convenience of explanation, the following documents use 3 nodes ( `192.168.1.10`, `192.168.1.11`, `192.168.1.12`) to illustrate the deployment use case.
 
@@ -14,25 +14,31 @@ For a list of supported operating system and installation requirements, please r
 
 ## Configuration and Deployment
 
+>**Note**  
+The following instructions assume that you already have sufficient privileges, we will not go into details about using `su` or `sudo` and other privilege escalation operations.
+
 ### I. Preparing for Installation
-The installation package of DBS usually consists of the following two files:  
-`Installation-3.0.0.tar.gz`  
+The packages provided by ZettaStor DBS [Downloads](https://zdbs.io/en/download/) usually consist of the following two files:  
+`Installation-1.0.0-OS-*.tar.gz`  
 `pengyun-deploy-1.0.0-OS-*.tar.gz`
 
-1. Put the above packages into the `/opt/deploy/` directory of deployment node (e.g. the first node of the cluster)
+1. Put `Installation-1.0.0-OS-*.tar.gz` toolkit into the `~` directory of the deployment node (e.g. the first node of the cluster) and unzip
 ```bash
-cd /opt/deploy
-# list files in /opt/deploy directory
+cd ~
 ls
-Installation-3.0.0.tar.gz  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
+Installation-1.0.0-OS-20230103.tar.gz
+
+mkdir -p /opt/deploy && tar -zxf Installation-1.0.0-OS-20230103.tar.gz -C /opt/deploy
+# list files in /opt/deploy directory
+ls /opt/deploy/
+Installation
 ```
 
-2. Unzip the `Installation` toolkit
+2. Put the `pengyun-deploy-1.0.0-OS-*.tar.gz` into the `/opt/deploy/` directory of the deployment node (e.g. the first node of the cluster)
 ```bash
-tar -zxf Installation-3.0.0.tar.gz && rm Installation-3.0.0.tar.gz
 # list files in /opt/deploy directory
-ls
-Installation  pengyun-deploy-1.0.0-OS-[2023-01-01_00-00-00].tar.gz
+ls /opt/deploy/
+Installation  pengyun-deploy-1.0.0-OS-20230101.tar.gz
 ```
 
 ### II. Configuration Wizard
@@ -44,7 +50,7 @@ cd /opt/deploy/Installation
 ```
 1. Configure Cluster Credentials
 ```
-=== (1/18): Configure Cluster Credentials ===
+=== (1/17): Configure Cluster Credentials ===
 Username for cluster nodes: root
 Password for cluster nodes: 111111
 Is this configuration correct and complete?
@@ -53,7 +59,7 @@ Press Enter to continue, [M] to modify:
 
 2. Configure Cluster Addresses
 ```
-=== (2/18): Configure Cluster Addresses ===
+=== (2/17): Configure Cluster Addresses ===
 IP addresses for cluster nodes:
 192.168.1.10:192.168.1.11,192.168.1.12
 Is this configuration correct and complete?
@@ -65,24 +71,24 @@ Use commas to separate multiple IP addresses, and use colon to indicate consecut
 
 3. Configure Cluster Hostname
 ```
-=== (3/18): Configure Cluster Hostname ===
+=== (3/17): Configure Cluster Hostname ===
 Hostname prefix for cluster nodes: server
 Is this configuration correct and complete?
 Press Enter to continue, [M] to modify, [P] to return to the previous step:
 ```
 
-5. Configure NTP Mode 
+4. Configure NTP Mode 
 ```
-=== (5/18): Configure NTP Mode ===
+=== (4/17): Configure NTP Mode ===
 NTP mode for cluster nodes: ntpdate
 Is this configuration correct and complete?
 Press Enter to continue, [M] to modify, [P] to return to the previous step:
 ```
 The default time synchronization service is `ntpdate`, for CentOS 8 or Redhat 8, please choose `chrony`.
 
-6. Configure NTP Server 
+5. Configure NTP Server 
 ```
-=== (6/18): Configure NTP Server ===
+=== (5/17): Configure NTP Server ===
 NTP server addresses for cluster nodes:
 192.168.1.10
 Is this configuration correct and complete?
@@ -90,33 +96,33 @@ Press Enter to continue, [M] to modify, [P] to return to the previous step:
 ```
 To ensure time synchronization between nodes in the cluster, specify a node in the cluster to automatically install the NTP service, or an existing NTP service address.
 
-7. Configure Database Mode  
+6. Configure Database Mode  
 ```
-=== (7/18): Configure Database Mode ===
+=== (6/17): Configure Database Mode ===
 Database mode for cluster nodes: single
 Is this configuration correct and complete?
 Press Enter to continue, [M] to modify, [P] to return to the previous step:
 ```
 `single` mode requires 1 node, `pacemaker` mode requires 2 nodes, `etcd` mode requires 3 nodes.
 
-8. Configure Database Master  
+7. Configure Database Master  
 Only applicable when `etcd` or `pacemaker` is selected as database cluster mode, otherwise this step will be skipped automatically.
 
-9. Configure Database Slave  
+8. Configure Database Slave  
 Only applicable when `pacemaker` is selected as database cluster mode, otherwise this step will be skipped automatically.
 
-10. Configure Database Address  
+9. Configure Database Address  
 ```
-=== (10/18): Configure Database Address ===
+=== (9/17): Configure Database Address ===
 Specify IP address ranges for database cluster nodes:
 192.168.1.10
 Is this configuration correct and complete?
 Press Enter to continue, [M] to modify, [P] to return to the previous step:
 ```
 
-11. Configure HA Service
+10. Configure HA Service
 ```
-=== (11/18): Configure HA Service ===
+=== (10/17): Configure HA Service ===
 Specify IP address ranges for HA services：
 192.168.1.11,192.168.1.12
 Is this configuration correct and complete?
@@ -124,9 +130,9 @@ Press Enter to continue, [M] to modify, [P] to return to the previous step:
 ```
 The number of nodes used for high availability service should ≥ 2
 
-12. Configure Storage Service  
+11. Configure Storage Service  
 ```
-=== (12/18): Configure Storage Service ===
+=== (11/17): Configure Storage Service ===
 Specify IP address ranges for storage service:
 192.168.1.10:192.168.1.12
 Is this configuration correct and complete?
@@ -134,18 +140,18 @@ Press Enter to continue, [M] to modify, [P] to return to the previous step:
 ```
 Usually configured as all nodes of the cluster, **in addition to the hard disk for installing operating system, each node should have additional blank disk(s) for Storage Service**.
 
-13. Configure Web Interface
+12. Configure Web Interface
 ```
-=== (13/18): Configure Web Interface ===
+=== (12/17): Configure Web Interface ===
 IP address of the web interface: 192.168.1.10
 Is this configuration correct and complete?
 Press Enter to continue, [M] to modify, [P] to return to the previous step:
 ```
 When the deployment is complete, management interface can be accessed through a web browser via the specified IP address.
 
-14. Enable Control-Data Separation?
+13. Enable Control-Data Separation?
 ```
-=== (14/18): Enable Control-Data Separation? ===
+=== (13/17): Enable Control-Data Separation? ===
 Current configuration: false
 Is this configuration correct and complete?
 Press Enter to continue, [M] to modify, [P] to return to the previous step:
@@ -155,24 +161,25 @@ If `false` is selected, step 16 and 17 will be automatically skipped.
 >**Control-Data Separation**  
 In general, it is recommended that DBS uses separate networks for control flow and data flow. Control flow does not require high bandwidth, but high stability; data flow requires high bandwidth. It is recommended to use optical fiber or InfiniBand network to obtain better transmission performance. It is recommended to configure redundant links for data flow and control flow in a production environment.
 
-15. Subnet for Control Communications
+14. Subnet for Control Communications
 ```
-=== (15/18): Subnet for Control Communications ===
+=== (14/17): Subnet for Control Communications ===
 Subnet for control communications (e.g. 192.168.1.0/24).
 Current configuration: 192.168.1.0/24
 Is this configuration correct and complete?
 Press Enter to continue, [M] to modify, [P] to return to the previous step:
 ```
 
-16. Subnet for Data Communications  
+15. Subnet for Data Communications  
 Subnet for transferring internal data between storage nodes.
 
-17. Subnet for User Communications  
+16. Subnet for User Communications  
 Subnet for I/O communication between computing nodes and storage nodes.
 
-18. Are you deploying on a physical server?
+17. Are you deploying on a physical server?
 ```
-=== (18/18): Are you deploying on a physical server? ===
+=== (17/17): Are you deploying on a physical server? ===
+Each physical node requires at least 128 GB of RAM. Please choose "false" for a Proof of Concept deployment, in which case each node requires 8 GB of RAM.
 Current configuration: false
 Is this configuration correct and complete?
 Press Enter to continue, [M] to modify, [P] to return to the previous step:
@@ -180,13 +187,13 @@ Press Enter to continue, [M] to modify, [P] to return to the previous step:
 
 Select `false` if deploying in a virtual machine such as VMware.
 
-So far, the Configuration Wizard has been completed.
+So far, the Configuration Wizard has been completed, you can press `Ctrl+C` to quit the Wizard, and refer to the next section for an automated deployment. If you continue with the Wizard, you will enter an interactive deployment process, which involves the same 10 steps as described in the next section.
 
 ### III. Deployment
 1. To deploy the DBS software, execute the following commands:
 ```
 cd /opt/deploy/Installation
-./install.sh -b
+./install.sh --batch
 ```
 2. Deployment requires no user interaction and consists of the following 10 steps:
 

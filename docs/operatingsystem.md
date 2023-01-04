@@ -107,7 +107,7 @@ After the system is installed:
 
 version information
 ```bash
-cat /etc/*release | grep PRETTY_NAME):
+cat /etc/*release | grep PRETTY_NAME
 
 PRETTY_NAME="CentOS Linux 7 (Core)"
 ```
