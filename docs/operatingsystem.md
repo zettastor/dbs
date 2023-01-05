@@ -103,6 +103,9 @@ After the system is installed, restart it and check whether you can enter the sy
 
 #### Version and Kernel Information
 
+>**Note**  
+Before deployment of ZettaStor software, please **DO NOT** upgrade any software package of the original operating system.
+
 After the system is installed:
 
 version information
@@ -119,50 +122,6 @@ uname -a
 Linux localhost.localdomain 3.10.0-1062.el7.x86_64 \#1 SMP Wed Aug 7
 18:08:02 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 ```
-
-## Driver Installation
-
-### InfiniBand
-
-Use the command `lspci` to identify the model of the IB card, you can use `yum install
-pciutils` on CentOS to install the package.
-
-```bash
-lspci | grep Mellanox
-```
-
-Download the corresponding driver according to the operating system type
-
-http://cn.mellanox.com/page/products_dyn?product_family=26&mtag=linux_sw_drivers
-
-```bash
-tar zxf MLNX_OFED_LINUX-*.tar.gz
-cd MLNX_OFED_LINUX-*
-./mlnxofedinstall
-```
-The installer will check the system library, if a dependency is missing, a prompt to use `yum install` will appear.
-
-```
-/etc/init.d/openibd restart
-```
-
-After the installation is complete, restart the host and use `ip a` to see the IB network cards with names such as ib0, ib1...
-
-On CentOS, you need to start openibd and opensmd services and set them to start at boot. The operation method is as follows:
-```
-service openibd start
-chkconfig openibd on
-```
-
-Start the subnet manager opensmd and set it to start on boot:  
-```
-service opensmd start  
-chkconfig opensmd on
-```
-
-Please refer to [Setup Guide](https://www.cloudibee.com/network-bonding-modes/) for network binding under Linux.
-
-`ifconfig` is no longer maintained, please use the `ip addr show` command to display the IP address of the HCA.
 
 ## Frequently Asked Questions
 
@@ -183,26 +142,6 @@ The command in this step is to confirm the drive letter of the USB drive. For ex
 `vmlinuz initrd=initrd.img inst.stage2=hd:/dev/sdc4 quiet`
 
 If there are no other errors, you should enter the language selection interface. The OS installation operation begins.
-
-### Disable VT-D and Console Redirection on a RH2288 server
-In some cases, the RAID card cannot read the hard disk information correctly due to insufficient resources of the RAID card. In this case, it is necessary to disable unnecessary services on the RAID card. The following describes the configuration on a Huawei RH2288 server.
-
-Enter the BIOS menu. Select `Socket Configuration` under `Advanced` on the left
-
-<img src="https://zdbs.io/operatingsystem/media/image34.png" />
-
-Select `IIO Configuration` in `Socket Configuration`
-
-<img src="https://zdbs.io/operatingsystem/media/image35.png" />
-
-
-Change `Enabled` to `Disabled` in `IIO Configuration` - `Intel(R) VT for Directed I/O(VT-d)`
-
-<img src="https://zdbs.io/operatingsystem/media/image36.png" />
-
-Change `Enabled` to `Disabled` in `Advanced` - `Console Redirection`
-
-<img src="https://zdbs.io/operatingsystem/media/image37.png" />
 
 ### "NMI watchdog: soft lockup CPU stuck" during boot
 

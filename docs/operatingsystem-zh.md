@@ -106,6 +106,9 @@ MD5值：`dc5932260da8f26bcdce0c7ebf0f59ca`
 
 #### 版本及内核信息
 
+>**注意**  
+在部署 ZettaStor DBS 之前，**不要**联网对原始操作系统的软件包进行任何升级。
+
 系统安装完毕之后：
 
 版本信息
@@ -122,114 +125,6 @@ uname -a
 Linux localhost.localdomain 3.10.0-1062.el7.x86_64 #1 SMP Wed Aug 7
 18:08:02 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 ```
-
-## 驱动安装
-
-### InfiniBand
-
-需要使用命令 `lspci` 识别 IB 卡的型号，在 CentOS 系统上可以使用 `yum install 
-pciutils` 来安装该软件包。
-
-```bash
-lspci | grep Mellanox
-```
-
-根据操作系统类型下载对应的驱动
-
-http://cn.mellanox.com/page/products_dyn?product_family=26&mtag=linux_sw_drivers
-
-```bash
-tar zxf MLNX_OFED_LINUX-*.tar.gz
-cd MLNX_OFED_LINUX-*
-./mlnxofedinstall
-```
-安装程序会检查系统库，如果缺少库会直接提示使用 `yum install`
-‘缺少的库’安装，根据提示安装即可，-q参数静默安装
-
-```
-/etc/init.d/openibd restart
-```
-
-安装完成后重启主机，使用 `ip a` 就可以看到 ib0,ib1... 等名字的 IB 网卡
-
-在 CentOS 系统中，需要将 openibd 和 opensmd 服务启动并设置为开机启动，操作方式如下：
-
-```
-service openibd start
-chkconfig openibd on
-```
-
-启动子网管理器opensmd并设为开机启动:  
-```
-service opensmd start  
-chkconfig opensmd on
-```
-
-Linux 下的网络绑定请参考[设置指南](https://www.cloudibee.com/network-bonding-modes/)。
-
-由于 `ifconfig` 已经不再维护，请使用 `ip addr show` 命令来显示 HCA 的 IP 地址
-
-## 计算节点软件安装
-
-### Windows多路径软件 MPIO
-
-#### MPIO 功能添加 
-
-<img src="https://zdbs.io/operatingsystem/media/image14.png" />
-
-在服务器角色中不需要选择任何角色，直接点击下一步
-
-<img src="https://zdbs.io/operatingsystem/media/image15.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image16.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image17.png" />
-
-安装完毕之后，点击关闭。
-
-#### MPIO支持ISCSI设备
-
-<img src="https://zdbs.io/operatingsystem/media/image18.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image19.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image20.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image21.png" />
-
-启动 Windows 机器，在 MIPO 属性中多出一个设备。
-
-<img src="https://zdbs.io/operatingsystem/media/image22.png" />
-
-#### ISCSI客户端连接
-
-<img src="https://zdbs.io/operatingsystem/media/image23.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image24.png" />
-
-（在进行连接之前，需要将本机发起程序的名称进行相应的授权。
-本机ISCSI发起程序的名称在 “ISCSI发起程序 属性”-“配置”页面 –
-发起程序命令里面获取。）
-
-<img src="https://zdbs.io/operatingsystem/media/image25.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image26.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image27.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image28.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image29.png" />
-
-将对应的逻辑卷进行连接（或者格式化），这样在我的电脑里面可以看到对应的磁盘分区。
-
-<img src="https://zdbs.io/operatingsystem/media/image30.png" />
-
-（有的磁盘状态为脱机，需要先进行联机操作）
-
-<img src="https://zdbs.io/operatingsystem/media/image31.png" />
-
-<img src="https://zdbs.io/operatingsystem/media/image32.png" />
 
 ## 常见问题
 
@@ -251,26 +146,6 @@ Linux 下的网络绑定请参考[设置指南](https://www.cloudibee.com/networ
 `vmlinuz initrd=initrd.img inst.stage2=hd:/dev/sdc4 quiet`
 
 如果没有错误的话，就应该进入语言选择界面。开始进行操作系统安装操作。
-
-### RH2288服务器关闭VT-D及Console redirection
-
-在某些情况下，因为RAID卡资源不足导致RAID卡不能正确的读取硬盘信息，这种情况下需要把RAID卡上不需要的服务关闭。以下以华为RH2288服务器的配置进行说明。
-
-进入BIOS的菜单。选中左侧 `Advanced` 下的 `Socket Configuration`
-
-<img src="https://zdbs.io/operatingsystem/media/image34.png" />
-
-在 `Socket Configuration` 中选择 `IIO Configuration`
-
-<img src="https://zdbs.io/operatingsystem/media/image35.png" />
-
-在 `IIO Configuration` 中将 `Intel(R) VT for Directed I/O(VT-d)` 功能的 `Enabled` 修改为 `Disabled`
-
-<img src="https://zdbs.io/operatingsystem/media/image36.png" />
-
-将 `Advanced` 下的 `Console Redirection` 从 `Enabled` 修改为 `Disabled`
-
-<img src="https://zdbs.io/operatingsystem/media/image37.png" />
 
 ### 安装引导出现“NMI watchdog: soft lockup CPU stuck”
 
