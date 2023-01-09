@@ -87,10 +87,10 @@ ZettaStor DBS 的仓库必须按特定的层次结构组织目录。
 <tr>
   <td rowspan="30">pengyun-root</td>
   <td rowspan="8">pengyun-lib</td>
-  <td>pengyun-database_core</td>
+  <td>pengyun-core</td>
 </tr>
 <tr>
-  <td>pengyun-core</td>
+  <td>pengyun-database_core</td>
 </tr>
 <tr>
   <td>pengyun-models</td>
@@ -111,10 +111,7 @@ ZettaStor DBS 的仓库必须按特定的层次结构组织目录。
   <td>pengyun-monitor_common</td>
 </tr>
 <tr>
-  <td rowspan="14">pengyun-dbs</td>
-  <td>pengyun-database_core</td>
-</tr>
-<tr>
+  <td rowspan="13">pengyun-dbs</td>
   <td>dbs-dnmodel</td>
 </tr>
 <tr>
