@@ -87,7 +87,7 @@ The repositories of ZettaStor DBS must be organized in a hierarchy structure.
 <tr>
   <td rowspan="30">pengyun-root</td>
   <td rowspan="8">pengyun-lib</td>
-  <td id="database_core">pengyun-database_core</td>
+  <td>pengyun-database_core</td>
 </tr>
 <tr>
   <td>pengyun-core</td>
@@ -155,6 +155,7 @@ The repositories of ZettaStor DBS must be organized in a hierarchy structure.
 </tr>
 </table>
 </details>
+
 Please use the following commands to download the source code:
 ```bash
 export ROOT_PATH=git@github.com

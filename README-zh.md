@@ -87,7 +87,7 @@ ZettaStor DBS 的仓库必须按特定的层次结构组织目录。
 <tr>
   <td rowspan="30">pengyun-root</td>
   <td rowspan="8">pengyun-lib</td>
-  <td id="database_core">pengyun-database_core</td>
+  <td>pengyun-database_core</td>
 </tr>
 <tr>
   <td>pengyun-core</td>
@@ -155,6 +155,7 @@ ZettaStor DBS 的仓库必须按特定的层次结构组织目录。
 </tr>
 </table>
 </details>
+
 请使用下列命令下载源代码：
 ```bash
 export ROOT_PATH=git@github.com
@@ -198,7 +199,7 @@ popd
 
 在类 Unix 系统下，可以通过键入下列命令安装编译所需要的软件包：
 
->**注意**  
+>**Note**  
 下列命令假设您已经具有足够权限，关于使用 `su` 或 `sudo` 等提权操作不再赘述。
 
 ### RHEL/CentOS 7
