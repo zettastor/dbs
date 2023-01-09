@@ -233,7 +233,7 @@ If there is an error, the script will report and exit, please review the warning
 
 >Due to the number of cluster nodes, hardware configuration, disk configuration, etc., the deployment time varies greatly. Please wait patiently and do not interrupt the deployment operation.
 
-3. When the deployment is complete, the DBS web interface can be accessed through a browser, and the address is `http://192.168.1.10:8080` where `192.168.1.10` is the IP address of the “Web interface” configured in step 13 of the Configuration Wizard. For the usage of DBS, please refer to the [User Manual](docs/manual-zh.md).
+3. When the deployment is complete, the DBS web interface can be accessed through a browser, and the address is `http://192.168.1.10:8080` where `192.168.1.10` is the IP address of the “Web interface” configured in step 12 of the Configuration Wizard. For the usage of DBS, please refer to the [User Manual](docs/manual-zh.md).
 
 ### IV. Undeploying
 To cleanup the deployed DBS software, execute the following command.

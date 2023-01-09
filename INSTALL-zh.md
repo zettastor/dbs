@@ -22,7 +22,7 @@
 
 ZettaStor DBS [下载页面](https://zdbs.io/en/download/) 提供的安装包通常包含如下两个文件：  
 `Installation-1.0.0-OS-*.tar.gz`  
-`pengyun-deploy-1.0.0-OS-*.tar.gz`   
+`pengyun-deploy-1.0.0-OS-*.tar.gz`  
 
 1. 将 `Installation-1.0.0-OS-*.tar.gz` 安装工具放到部署节点（例如集群的第1个节点）的 `~` 目录并解压
 ```bash
@@ -233,7 +233,7 @@ LANGUAGE=zh_CN ./install.sh --batch
 
 >因集群节点数量、硬件配置、磁盘配置等不同，部署时间差异较大，请耐心等待，不要中断部署操作。
 
-3. 部署完成之后，可通过浏览器访问 DBS Web 界面，访问地址为 `http://192.168.1.10:8080` 其中 `192.168.1.10` 为修改配置第13步中配置的“Web 界面的 IP 地址”。有关 DBS 的操作与使用，请参考 [用户手册](docs/manual-zh.md)。
+3. 部署完成之后，可通过浏览器访问 DBS Web 界面，访问地址为 `http://192.168.1.10:8080` 其中 `192.168.1.10` 为修改配置第12步中配置的“Web 界面的 IP 地址”。有关 DBS 的操作与使用，请参考 [用户手册](docs/manual-zh.md)。
 
 ### 四、清除部署
 如果需要清除已经部署的 DBS，执行下列命令：

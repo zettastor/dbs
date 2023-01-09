@@ -80,7 +80,82 @@
 # 快速上手
 
 ## 一、下载代码
-ZettaStor DBS 的仓库必须按特定的层次结构组织目录，请使用下列命令下载源代码：
+ZettaStor DBS 的仓库必须按特定的层次结构组织目录。
+<details>
+  <summary>点击这里了解源代码目录结构</summary>
+<table>
+<tr>
+  <td rowspan="30">pengyun-root</td>
+  <td rowspan="8">pengyun-lib</td>
+  <td id="database_core">pengyun-database_core</td>
+</tr>
+<tr>
+  <td>pengyun-core</td>
+</tr>
+<tr>
+  <td>pengyun-models</td>
+</tr>
+<tr>
+  <td>pengyun-dih_model</td>
+</tr>
+<tr>
+  <td>pengyun-dih_client</td>
+</tr>
+<tr>
+  <td>pengyun-query_log</td>
+</tr>
+<tr>
+  <td>pengyun-configuration_common</td>
+</tr>
+<tr>
+  <td>pengyun-monitor_common</td>
+</tr>
+<tr>
+  <td rowspan="14">pengyun-dbs</td>
+  <td>pengyun-database_core</td>
+</tr>
+<tr>
+  <td>dbs-dnmodel</td>
+</tr>
+<tr>
+  <td>dbs-models_related</td>
+</tr>
+<tr>
+  <td>pengyun-driver_core</td>
+</tr>
+<tr>
+  <td>pengyun-coordinator</td>
+</tr>
+<tr>
+  <td>pengyun-infocenter</td>
+</tr>
+<tr>
+  <td>pengyun-drivercontainer</td>
+</tr>
+<tr>
+  <td>pengyun-deployment_daemon</td>
+</tr>
+<tr>
+  <td>pengyun-datanode_core</td>
+</tr>
+<tr>
+  <td>pengyun-datanode_service</td>
+</tr>
+<tr>
+  <td>pengyun-datanode</td>
+</tr>
+<tr>
+  <td>pengyun-webservice_adapter</td>
+</tr>
+<tr>
+  <td>pengyun-utils</td>
+</tr>
+<tr>
+  <td>pengyun-console</td>
+</tr>
+</table>
+</details>
+请使用下列命令下载源代码：
 ```bash
 export ROOT_PATH=git@github.com
 
@@ -234,8 +309,9 @@ libprotoc 3.5.1
 
 ### 使用 Maven 构建
 
-在`pengyun-root/pom.xml`所在目录，使用下列 Maven 命令构建软件包：
+使用下列 Maven 命令构建软件包：
 ```bash
+cd pengyun-root/
 # 根据系统环境更新版本号
 mvn versions:set-property -Dproperty=libthrift.version -DnewVersion=$(thrift --version | awk '{print $3}')
 mvn versions:set-property -Dproperty=protobuf.version -DnewVersion=$(protoc --version | awk '{print $2}')
@@ -249,8 +325,9 @@ mvn -T 1C clean install -Dproguard=off -DskipTests
 
 ## 四、制作安装包
 
-编译完成后，在`pengyun-root/pengyun-dbs/`目录，使用下列命令制作安装包：
+编译完成后，使用下列命令制作安装包：
 ```bash
+cd pengyun-root/pengyun-dbs/
 mkdir -p /opt/deploy/
 perl bin/CreateDeployPackage.pl -d /opt/deploy
 ```

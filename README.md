@@ -79,9 +79,83 @@ The following table compares some key features between various versions of [Zett
 
 # Quick Start
 
-
 ## I. Downloading the Source
-The repositories of ZettaStor DBS must be organized in a hierarchy structure, use the following commands to download the source code:
+The repositories of ZettaStor DBS must be organized in a hierarchy structure.
+<details>
+  <summary>Click here for details on source code structure</summary>
+<table>
+<tr>
+  <td rowspan="30">pengyun-root</td>
+  <td rowspan="8">pengyun-lib</td>
+  <td id="database_core">pengyun-database_core</td>
+</tr>
+<tr>
+  <td>pengyun-core</td>
+</tr>
+<tr>
+  <td>pengyun-models</td>
+</tr>
+<tr>
+  <td>pengyun-dih_model</td>
+</tr>
+<tr>
+  <td>pengyun-dih_client</td>
+</tr>
+<tr>
+  <td>pengyun-query_log</td>
+</tr>
+<tr>
+  <td>pengyun-configuration_common</td>
+</tr>
+<tr>
+  <td>pengyun-monitor_common</td>
+</tr>
+<tr>
+  <td rowspan="14">pengyun-dbs</td>
+  <td>pengyun-database_core</td>
+</tr>
+<tr>
+  <td>dbs-dnmodel</td>
+</tr>
+<tr>
+  <td>dbs-models_related</td>
+</tr>
+<tr>
+  <td>pengyun-driver_core</td>
+</tr>
+<tr>
+  <td>pengyun-coordinator</td>
+</tr>
+<tr>
+  <td>pengyun-infocenter</td>
+</tr>
+<tr>
+  <td>pengyun-drivercontainer</td>
+</tr>
+<tr>
+  <td>pengyun-deployment_daemon</td>
+</tr>
+<tr>
+  <td>pengyun-datanode_core</td>
+</tr>
+<tr>
+  <td>pengyun-datanode_service</td>
+</tr>
+<tr>
+  <td>pengyun-datanode</td>
+</tr>
+<tr>
+  <td>pengyun-webservice_adapter</td>
+</tr>
+<tr>
+  <td>pengyun-utils</td>
+</tr>
+<tr>
+  <td>pengyun-console</td>
+</tr>
+</table>
+</details>
+Please use the following commands to download the source code:
 ```bash
 export ROOT_PATH=git@github.com
 
