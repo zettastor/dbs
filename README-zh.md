@@ -79,79 +79,80 @@
 
 # 快速上手
 
-## 一、下载代码
-ZettaStor DBS 的仓库必须按特定的层次结构组织目录。
-<details>
-  <summary>点击这里了解源代码目录结构</summary>
+## 一、源代码概况
+ZettaStor DBS 的仓库必须按特定的层次结构组织目录。该项目已经实现了持续集成（CI），以确保代码的质量和稳定性。请注意，随着代码库的新提交，以下的 CI 状态可能会发生变化。如果您有任何问题或疑虑，请使用 [GitHub Issues](https://github.com/zettastor/dbs/issues) 报告问题。
+
 <table>
 <tr>
   <td rowspan="30">pengyun-root</td>
   <td rowspan="8">pengyun-lib</td>
-  <td>pengyun-core</td>
+  <td><img src="https://github.com/zettastor/pengyun-core/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-core" /></td>
 </tr>
 <tr>
-  <td>pengyun-database_core</td>
+  <td><img src="https://github.com/zettastor/pengyun-database_core/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-database_core" /></td>
 </tr>
 <tr>
-  <td>pengyun-models</td>
+  <td><img src="https://github.com/zettastor/pengyun-models/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-models" /></td>
 </tr>
 <tr>
-  <td>pengyun-dih_model</td>
+  <td><img src="https://github.com/zettastor/pengyun-dih_model/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-dih_model" /></td>
 </tr>
 <tr>
-  <td>pengyun-dih_client</td>
+  <td><img src="https://github.com/zettastor/pengyun-dih_client/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-dih_client" />
+</td>
 </tr>
 <tr>
-  <td>pengyun-query_log</td>
+  <td><img src="https://github.com/zettastor/pengyun-query_log/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-query_log" /></td>
 </tr>
 <tr>
-  <td>pengyun-configuration_common</td>
+  <td><img src="https://github.com/zettastor/pengyun-configuration_common/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-configuration_common" /></td>
 </tr>
 <tr>
-  <td>pengyun-monitor_common</td>
+  <td><img src="https://github.com/zettastor/pengyun-monitor_common/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-monitor_common" /></td>
 </tr>
 <tr>
   <td rowspan="13">pengyun-dbs</td>
-  <td>dbs-dnmodel</td>
+  <td><img src="https://github.com/zettastor/dbs-dnmodel/actions/workflows/ubuntu20.yml/badge.svg" alt="dbs-dnmodel" /></td>
 </tr>
 <tr>
-  <td>dbs-models_related</td>
+  <td><img src="https://github.com/zettastor/dbs-models_related/actions/workflows/ubuntu20.yml/badge.svg" alt="dbs-models_related" /></td>
 </tr>
 <tr>
-  <td>pengyun-driver_core</td>
+  <td><img src="https://github.com/zettastor/pengyun-driver_core/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-driver_core" /></td>
 </tr>
 <tr>
-  <td>pengyun-coordinator</td>
+  <td><img src="https://github.com/zettastor/pengyun-coordinator/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-coordinator" /></td>
 </tr>
 <tr>
-  <td>pengyun-infocenter</td>
+  <td><img src="https://github.com/zettastor/pengyun-infocenter/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-infocenter" /></td>
 </tr>
 <tr>
-  <td>pengyun-drivercontainer</td>
+  <td><img src="https://github.com/zettastor/pengyun-drivercontainer/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-drivercontainer" /></td>
 </tr>
 <tr>
-  <td>pengyun-deployment_daemon</td>
+  <td><img src="https://github.com/zettastor/pengyun-deployment_daemon/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-deployment_daemon" /></td>
 </tr>
 <tr>
-  <td>pengyun-datanode_core</td>
+  <td><img src="https://github.com/zettastor/pengyun-datanode_core/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-datanode_core" /></td>
 </tr>
 <tr>
-  <td>pengyun-datanode_service</td>
+  <td><img src="https://github.com/zettastor/pengyun-datanode_service/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-datanode_service" /></td>
 </tr>
 <tr>
-  <td>pengyun-datanode</td>
+  <td><img src="https://github.com/zettastor/pengyun-datanode/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-datanode" /></td>
 </tr>
 <tr>
-  <td>pengyun-webservice_adapter</td>
+  <td><img src="https://github.com/zettastor/pengyun-webservice_adapter/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-webservice_adapter" /></td>
 </tr>
 <tr>
-  <td>pengyun-utils</td>
+  <td><img src="https://github.com/zettastor/pengyun-utils/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-utils" /></td>
 </tr>
 <tr>
-  <td>pengyun-console</td>
+  <td><img src="https://github.com/zettastor/pengyun-console/actions/workflows/ubuntu20.yml/badge.svg" alt="pengyun-console" /></td>
 </tr>
 </table>
-</details>
+
+## 二. 下载源代码
 
 请使用下列命令下载源代码：
 ```bash
@@ -192,7 +193,7 @@ popd
 popd
 ```
 
-## 二、准备编译环境
+## 三、准备编译环境
 
 在类 Unix 系统下，可以通过键入下列命令安装编译所需要的软件包：
 
@@ -282,7 +283,7 @@ export PATH="/usr/local/opt/thrift@0.9/bin:$PATH"
 
 - __Protocol Buffers (Protobuf)__: 首先检查您是否可以下载 [Protobuf 3.5.1 预编译二进制文件](https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.1)。如果要从源代码编译 protoc 二进制文件，请查看 [安装说明](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md)。
 
-## 三、开始编译
+## 四、开始编译
 
 ### 编译环境确认
 要编译 ZettaStor DBS，您需要：
@@ -321,7 +322,7 @@ mvn clean install -Dproguard=off
 mvn -T 1C clean install -Dproguard=off -DskipTests
 ```
 
-## 四、制作安装包
+## 五、制作安装包
 
 编译完成后，使用下列命令制作安装包：
 ```bash
