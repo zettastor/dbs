@@ -1,6 +1,6 @@
 在分离部署方案中，使用多台物理机设备仅部署 Zettastor DBS，分布式存储对接的应用软件由其它的节点进行部署。这样就做到存储和计算之间的分离。这种方式下计算和存储之间相对独立，各自软件可以单独部署、扩容，技术上也相对简单。Zettastor DBS通过标准的 iSCSI 协议与各类软件进行对接。
 
-<img src="https://zdbs.io/vitualization/media/hci2.png" width="65%" />
+<img src="https://zdbs.io/vitualization/media/hci2.png" width="50%" />
 
 在本文中，我们将介绍在 ZettaStor DBS 中设置 iSCSI 服务并在客户机中使用其中的存储空间来部署 VMware ESXi 虚拟机映像。
 
@@ -77,16 +77,16 @@
 <img src="https://zdbs.io/vitualization/media/esxi_iscsiinit2.png" />
 
 ## 2. 在 DBS 上配置 iSCSI 服务
-以下业务开通流程是在 DBS 上配置 iSCSI 服务所需的最小设置步骤，列表中提供了该操作在用户手册中对应的链接。有关高级配置选项的详细信息，建议您查阅 [用户手册](/manual) 并进行相应配置以获得最佳性能和安全性。
+以下业务开通流程是在 DBS 上配置 iSCSI 服务所需的最小设置步骤，列表中提供了该操作在用户手册中对应的链接。有关高级配置选项的详细信息，建议您查阅 [用户手册](/docs/manual-zh.md) 并进行相应配置以获得最佳性能和安全性。
 
-### 2.1 [创建存储域](/manual#创建域)
-### 2.2 [添加存储节点](/manual#添加和移除存储节点)
-### 2.3 [创建存储池](/manual#创建存储池)
-### 2.4 [添加存储磁盘](/manual#存储池磁盘扩容和减容)
-### 2.5 [创建存储卷](/manual#创建卷)
-### 2.6 [创建存储驱动](/manual#挂载驱动)
+### 2.1 [创建存储域](/docs/manual-zh.md#创建域)
+### 2.2 [添加存储节点](/docs/manual-zh.md#添加和移除存储节点)
+### 2.3 [创建存储池](/docs/manual-zh.md#创建存储池)
+### 2.4 [添加存储磁盘](/docs/manual-zh.md#存储池磁盘扩容和减容)
+### 2.5 [创建存储卷](/docs/manual-zh.md#创建卷)
+### 2.6 [创建存储驱动](/docs/manual-zh.md#挂载驱动)
 其中，“驱动类型”选择 iSCSI 驱动
-### 2.7 [创建访问控制并授权](/manual#访问控制管理)
+### 2.7 [创建访问控制并授权](/docs/manual-zh.md#访问控制管理)
 此步骤需要填写 [1.2 启用 iSCSI 适配器 ](#12-启用-iscsi-适配器) 第 4 步 中客户机的名称和别名(IQN)
 
 

@@ -1,6 +1,6 @@
 在分离部署方案中，使用多台物理机设备仅部署 Zettastor DBS，分布式存储对接的应用软件由其它的节点进行部署。这样就做到存储和计算之间的分离。这种方式下计算和存储之间相对独立，各自软件可以单独部署、扩容，技术上也相对简单。Zettastor DBS通过标准的 iSCSI 协议与各类软件进行对接。
 
-<img src="https://zdbs.io/vitualization/media/hci2.png" width="65%" />
+<img src="https://zdbs.io/vitualization/media/hci2.png" width="50%" />
 
 在本文中，我们将介绍在 ZettaStor DBS 中设置 iSCSI 服务并在客户机中使用其中的存储空间来部署 KVM 映像。
 
@@ -35,19 +35,19 @@ systemctl status iscsid
 $ cat /etc/iscsi/initiatorname.iscsi
 InitiatorName=iqn.1994-05.com.redhat:c341717a8db
 ```
-这个 IQN 将在 [步骤2.7 创建访问控制并授权](/manual#访问控制管理) 中被使用。
+这个 IQN 将在 [步骤2.7 创建访问控制并授权](/docs/manual-zh.md#访问控制管理) 中被使用。
 
 ## 2. 在 DBS 上配置 iSCSI 服务
-以下业务开通流程是在 DBS 上配置 iSCSI 服务所需的最小设置步骤，列表中提供了该操作在用户手册中对应的链接。有关高级配置选项的详细信息，建议您查阅 [用户手册](/manual) 并进行相应配置以获得最佳性能和安全性。
+以下业务开通流程是在 DBS 上配置 iSCSI 服务所需的最小设置步骤，列表中提供了该操作在用户手册中对应的链接。有关高级配置选项的详细信息，建议您查阅 [用户手册](/docs/manual-zh.md) 并进行相应配置以获得最佳性能和安全性。
 
-### 2.1 [创建存储域](/manual#创建域)
-### 2.2 [添加存储节点](/manual#添加和移除存储节点)
-### 2.3 [创建存储池](/manual#创建存储池)
-### 2.4 [添加存储磁盘](/manual#存储池磁盘扩容和减容)
-### 2.5 [创建存储卷](/manual#创建卷)
-### 2.6 [创建存储驱动](/manual#挂载驱动)
+### 2.1 [创建存储域](/docs/manual-zh.md#创建域)
+### 2.2 [添加存储节点](/docs/manual-zh.md#添加和移除存储节点)
+### 2.3 [创建存储池](/docs/manual-zh.md#创建存储池)
+### 2.4 [添加存储磁盘](/docs/manual-zh.md#存储池磁盘扩容和减容)
+### 2.5 [创建存储卷](/docs/manual-zh.md#创建卷)
+### 2.6 [创建存储驱动](/docs/manual-zh.md#挂载驱动)
 其中，“驱动类型”选择 iSCSI 驱动
-### 2.7 [创建访问控制并授权](/manual#访问控制管理)
+### 2.7 [创建访问控制并授权](/docs/manual-zh.md#访问控制管理)
 此步骤需要填写 [步骤1 在客户机上安装 iSCSI Initiator](#1-在客户机上安装-iscsi-initiator) 中客户机的 IQN
 
 ## 3. 在客户机上使用 iSCSI 服务
@@ -101,24 +101,24 @@ virt-manager
 ```
 2. 点击 `File - New Virtual Machine`
 
-<img src="https://zdbs.io/vitualization/media/kvm01.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm01.png" width="33%" />
 
 3. 在打开的对话框中，选择使用 ISO 镜像安装 VM 的选项，此处使用 CentOS 7 安装盘。然后点击 `Forward`。
 
-<img src="https://zdbs.io/vitualization/media/kvm02.png" width="50%" />
-<img src="https://zdbs.io/vitualization/media/kvm03.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm02.png" width="33%" />
+<img src="https://zdbs.io/vitualization/media/kvm03.png" width="33%" />
 
 4. 输入希望分配给虚拟机的 RAM 数量和 CPU 数量，然后点击 `Forward`。
 
-<img src="https://zdbs.io/vitualization/media/kvm04.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm04.png" width="33%" />
 
 5. 选择 `Select or create custom storage`，然后点击 `Manage`。
 
-<img src="https://zdbs.io/vitualization/media/kvm06.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm06.png" width="33%" />
 
 6. 点击左下角 `Add pool` 按钮，打开向导。
 
-<img src="https://zdbs.io/vitualization/media/iscsi02.png" width="75%" />
+<img src="https://zdbs.io/vitualization/media/iscsi02.png" width="50%" />
 
 7. 选择一个存储池的名称，此处需要来完成此菜单中的字段：
 
@@ -129,20 +129,20 @@ virt-manager
 
 然后点击 `Finish`。
 
-<img src="https://zdbs.io/vitualization/media/iscsi03.png" width="60%" />
+<img src="https://zdbs.io/vitualization/media/iscsi03.png" width="33%" />
 
 8. 现在可以选择刚才创建的 iSCSI 目标，点击 `Choose Volume`。
 
-<img src="https://zdbs.io/vitualization/media/kvm07.png" width="75%" />
+<img src="https://zdbs.io/vitualization/media/kvm07.png" width="50%" />
 
 9. 确认已挂载的 iSCSI 存储，然后点击 `Forward`。
 
-<img src="https://zdbs.io/vitualization/media/kvm08.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm08.png" width="33%" />
 
 10. 请为您的虚拟机指定名称，然后单击 `Finish` 以完成设置。
 
-<img src="https://zdbs.io/vitualization/media/kvm09.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm09.png" width="33%" />
 
 11. 虚拟机会自动启动，并提示您开始安装 ISO 文件中的操作系统。
 
-<img src="https://zdbs.io/vitualization/media/kvm10.png" />
+<img src="https://zdbs.io/vitualization/media/kvm10.png" width="65%" />
