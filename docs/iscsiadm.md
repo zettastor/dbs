@@ -1,9 +1,3 @@
----
-title: Linux 环境 iSCSI 挂载
-description: Docs intro
-layout: ~/layouts/DocLayout.astro
----
-
 iSCSI 协议是一种将 SCSI 协议扩展到 TCP/IP 网络的技术，可以实现在 IP 网络上运行块存储设备。
 
 ## 0. 环境要求

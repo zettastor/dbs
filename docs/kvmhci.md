@@ -1,12 +1,6 @@
----
-title: KVM 超融合部署
-description: Docs intro
-layout: ~/layouts/DocLayout.astro
----
-
 在 KVM 超融合部署方案中，每台服务器既作为计算节点，承担业务负载，同时也作为数据存储节点，对外提供数据存储服务。其优点在于架构更加灵活敏捷，用户只需按一定配置向系统内补充节点，即可实现计算和存储能力的同步横向扩展，同时可实现更高的资源利用率，从而降低总体成本。
 
-<img src="/vitualization/media/hci1.png" width="75%" />
+<img src="https://zdbs.io/vitualization/media/hci1.png" width="75%" />
 
 在本文中，我们将介绍在物理服务器中安装 KVM，并在其中部署 DBS 块存储软件。
 
@@ -67,30 +61,30 @@ virt-manager
 ```
 2. 点击 `File - New Virtual Machine`
 
-<img src="/vitualization/media/kvm01.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm01.png" width="50%" />
 
 3. 在打开的对话框中，选择使用 ISO 镜像安装 VM 的选项。然后点击 `Forward`。
 
-<img src="/vitualization/media/kvm02.png" width="50%" />
-<img src="/vitualization/media/kvm03.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm02.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm03.png" width="50%" />
 
 4. 输入希望分配给虚拟机的 RAM 数量和 CPU 数量，然后点击 `Forward`。
 
-<img src="/vitualization/media/kvm04.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm04.png" width="50%" />
 
 5. 输入希望分配给虚拟机的系统盘空间，然后点击 `Forward`。
 
-<img src="/vitualization/media/kvm05.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm05.png" width="50%" />
 
 6. 将所有物理服务器上的存储用磁盘透传分配给虚拟机。
 
 7. 请为您的虚拟机指定名称，然后单击 `Finish` 以完成设置。
 
-<img src="/vitualization/media/kvm09.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm09.png" width="50%" />
 
 8. 虚拟机会自动启动，并提示您开始安装 ISO 文件中的操作系统。
 
-<img src="/vitualization/media/kvm10.png" />
+<img src="https://zdbs.io/vitualization/media/kvm10.png" />
 
 ## 2. 在虚拟机中安装 CentOS 7
 

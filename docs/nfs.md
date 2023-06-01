@@ -1,9 +1,3 @@
----
-title: NFS 服务
-description: Docs intro
-layout: ~/layouts/DocLayout.astro
----
-
 网络文件系统（NFS）是一种分布式文件系统协议。它允许客户端计算机上的用户像访问本地存储一样访问计算机网络上的文件。它在 Unix 和 Linux 环境中被广泛用于文件共享，并提供了访问控制和身份验证等安全功能。NFS 的当前版本是 NFSv4。
 
 ## 1. 环境要求

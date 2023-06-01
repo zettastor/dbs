@@ -1,12 +1,6 @@
----
-title: KVM 分离部署
-description: Docs intro
-layout: ~/layouts/DocLayout.astro
----
-
 在分离部署方案中，使用多台物理机设备仅部署 Zettastor DBS，分布式存储对接的应用软件由其它的节点进行部署。这样就做到存储和计算之间的分离。这种方式下计算和存储之间相对独立，各自软件可以单独部署、扩容，技术上也相对简单。Zettastor DBS通过标准的 iSCSI 协议与各类软件进行对接。
 
-<img src="/vitualization/media/hci2.png" width="65%" />
+<img src="https://zdbs.io/vitualization/media/hci2.png" width="65%" />
 
 在本文中，我们将介绍在 ZettaStor DBS 中设置 iSCSI 服务并在客户机中使用其中的存储空间来部署 KVM 映像。
 
@@ -107,24 +101,24 @@ virt-manager
 ```
 2. 点击 `File - New Virtual Machine`
 
-<img src="/vitualization/media/kvm01.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm01.png" width="50%" />
 
 3. 在打开的对话框中，选择使用 ISO 镜像安装 VM 的选项，此处使用 CentOS 7 安装盘。然后点击 `Forward`。
 
-<img src="/vitualization/media/kvm02.png" width="50%" />
-<img src="/vitualization/media/kvm03.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm02.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm03.png" width="50%" />
 
 4. 输入希望分配给虚拟机的 RAM 数量和 CPU 数量，然后点击 `Forward`。
 
-<img src="/vitualization/media/kvm04.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm04.png" width="50%" />
 
 5. 选择 `Select or create custom storage`，然后点击 `Manage`。
 
-<img src="/vitualization/media/kvm06.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm06.png" width="50%" />
 
 6. 点击左下角 `Add pool` 按钮，打开向导。
 
-<img src="/vitualization/media/iscsi02.png" width="75%" />
+<img src="https://zdbs.io/vitualization/media/iscsi02.png" width="75%" />
 
 7. 选择一个存储池的名称，此处需要来完成此菜单中的字段：
 
@@ -135,20 +129,20 @@ virt-manager
 
 然后点击 `Finish`。
 
-<img src="/vitualization/media/iscsi03.png" width="60%" />
+<img src="https://zdbs.io/vitualization/media/iscsi03.png" width="60%" />
 
 8. 现在可以选择刚才创建的 iSCSI 目标，点击 `Choose Volume`。
 
-<img src="/vitualization/media/kvm07.png" width="75%" />
+<img src="https://zdbs.io/vitualization/media/kvm07.png" width="75%" />
 
 9. 确认已挂载的 iSCSI 存储，然后点击 `Forward`。
 
-<img src="/vitualization/media/kvm08.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm08.png" width="50%" />
 
 10. 请为您的虚拟机指定名称，然后单击 `Finish` 以完成设置。
 
-<img src="/vitualization/media/kvm09.png" width="50%" />
+<img src="https://zdbs.io/vitualization/media/kvm09.png" width="50%" />
 
 11. 虚拟机会自动启动，并提示您开始安装 ISO 文件中的操作系统。
 
-<img src="/vitualization/media/kvm10.png" />
+<img src="https://zdbs.io/vitualization/media/kvm10.png" />
