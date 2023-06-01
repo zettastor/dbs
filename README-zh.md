@@ -25,6 +25,14 @@
   - [编码标准](#编码标准)
   - [提交代码](#提交代码)
   - [许可证](LICENSE.md)
+- 应用场景
+  - [iSCSI 挂载 (Linux)](docs/iscsiadm.md)
+  - [iSCSI 挂载 (Windows)](docs/iscsiwin.md)
+  - [NFS 文件共享](docs/nfs.md)
+  - [KVM 分离部署](docs/kvm.md)
+  - [KVM 超融合部署](docs/kvmhci.md)
+  - [VMware ESXi 分离部署](docs/vmware.md)
+  - [Hyper-V 分离部署](docs/hyperv.md)
 
 # ZettaStor DBS 分布式块存储系统
 
@@ -151,7 +159,7 @@ ZettaStor DBS 的仓库必须按特定的层次结构组织目录。该项目已
 </tr>
 </table>
 
-## 二. 下载源代码
+## 二、下载源代码
 
 请使用下列命令下载源代码：
 ```bash
