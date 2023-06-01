@@ -35,7 +35,7 @@ systemctl status iscsid
 $ cat /etc/iscsi/initiatorname.iscsi
 InitiatorName=iqn.1994-05.com.redhat:c341717a8db
 ```
-这个 IQN 将在 [步骤2.7 创建访问控制并授权](/docs/manual-zh.md#访问控制管理) 中被使用。
+这个 IQN 将在 [步骤2.7 创建访问控制并授权](#27-创建访问控制并授权) 中被使用。
 
 ## 2. 在 DBS 上配置 iSCSI 服务
 以下业务开通流程是在 DBS 上配置 iSCSI 服务所需的最小设置步骤，列表中提供了该操作在用户手册中对应的链接。有关高级配置选项的详细信息，建议您查阅 [用户手册](/docs/manual-zh.md) 并进行相应配置以获得最佳性能和安全性。

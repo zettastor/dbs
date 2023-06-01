@@ -24,19 +24,19 @@
 
 1. VMware vSphere Hypervisor (ESXi) 是一款商业产品，但是当您 [创建一个账户](https://customerconnect.vmware.com/account-registration) 并开始试用期后，您可以下载一个为期60天的 [试用版本](https://customerconnect.vmware.com/en/evalcenter?p=free-esxi7)。在网站页面点击“License & Download”，然后下载“VMware vSphere Hypervisor (ESXi ISO) image”。
 
-<img src="https://zdbs.io/vitualization/media/esxi_install01.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_install01.png" width="75%" />
 
 2. 刻录 ISO 光盘并从光盘启动客户机
 
-<img src="https://zdbs.io/vitualization/media/esxi_install02.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_install02.png" width="66%" />
 
 3. 在欢迎页面, 按 `ENTER` 键
 
-<img src="https://zdbs.io/vitualization/media/esxi_install03.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_install03.png" width="66%" />
 
 4. 按 `F11` 键接受许可
 
-<img src="https://zdbs.io/vitualization/media/esxi_install04.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_install04.png" width="66%" />
 
 5. 按 `ENTER` 键选择单个磁盘作为默认安装驱动器
 
@@ -48,33 +48,33 @@
 
 9. 在重启客户机前，弹出 CDROM
 
-<img src="https://zdbs.io/vitualization/media/esxi_install09.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_install09.png" width="66%" />
 
 10. 重启客户机后，您应该看到下面的屏幕，显示 ESXi 服务器的管理地址
 
-<img src="https://zdbs.io/vitualization/media/esxi_install10.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_install10.png" width="66%" />
 
 ### 1.2 启用 iSCSI 适配器
 
 1. 打开浏览器输入 ESXi 服务器的管理地址，在登录界面输入root的密码
 
-<img src="https://zdbs.io/vitualization/media/esxi_login.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_login.png" width="66%" />
 
 2. 在右上角点击用户名，在弹出菜单中选择 `Settings - Language` 切换语言
 
-<img src="https://zdbs.io/vitualization/media/esxi_language.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_language.png" width="66%" />
 
 3. 在左侧导航栏点击存储图标，选择 `适配器`，点击 `软件iSCSI`
 
-<img src="https://zdbs.io/vitualization/media/esxi_addiscsi.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_addiscsi.png" width="66%" />
 
 4. 点击 `已启用`，记录 `名称和别名`，点击 `保存配置`
 
-<img src="https://zdbs.io/vitualization/media/esxi_iscsiinit1.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_iscsiinit1.png" width="66%" />
 
 5. 点击 `刷新`，确认 `iSCSI Software Adaptor` 状态为 `联机`
 
-<img src="https://zdbs.io/vitualization/media/esxi_iscsiinit2.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_iscsiinit2.png" width="66%" />
 
 ## 2. 在 DBS 上配置 iSCSI 服务
 以下业务开通流程是在 DBS 上配置 iSCSI 服务所需的最小设置步骤，列表中提供了该操作在用户手册中对应的链接。有关高级配置选项的详细信息，建议您查阅 [用户手册](/docs/manual-zh.md) 并进行相应配置以获得最佳性能和安全性。
@@ -98,64 +98,64 @@
 
 2. 在左侧导航栏点击存储图标，选择 `适配器`，选择 `iSCSI Software Adaptor`，点击 `配置 iSCSI`
 
-<img src="https://zdbs.io/vitualization/media/esxi_iscsiconf1.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_iscsiconf1.png" width="66%" />
 
 3. 点击 `添加动态目标`，填写 DBS IP 地址，然后点击 `保存配置`
 
-<img src="https://zdbs.io/vitualization/media/esxi_iscsiconf2.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_iscsiconf2.png" width="66%" />
 
 4. 选择 `设备`，点击 `重新扫描`，然后点击相应的 iSCSI 磁盘
 
-<img src="https://zdbs.io/vitualization/media/esxi_datastore0.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_datastore0.png" width="66%" />
 
 5. 点击 `新建数据存储`
 
-<img src="https://zdbs.io/vitualization/media/esxi_datastore1.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_datastore1.png" width="66%" />
 
 6. 填写 `名称`，点击 `下一页`
 
-<img src="https://zdbs.io/vitualization/media/esxi_datastore3.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_datastore3.png" width="66%" />
 
 7. 选择 `使用全部磁盘`，点击 `下一页`
 
-<img src="https://zdbs.io/vitualization/media/esxi_datastore4.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_datastore4.png" width="66%" />
 
 8. 点击 `完成`
 
-<img src="https://zdbs.io/vitualization/media/esxi_datastore5.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_datastore5.png" width="66%" />
 
 9. 在警告对话框点击 `是`
 
-<img src="https://zdbs.io/vitualization/media/esxi_datastore6.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_datastore6.png" width="66%" />
 
 ### 3.2 创建虚拟机 
 
 1. 在左侧导航栏点击存储图标，选择 `虚拟机`，点击 `创建/注册虚拟机`
 
-<img src="https://zdbs.io/vitualization/media/esxi_vm01.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_vm01.png" width="66%" />
 
 2. 点击 `下一页`
 
-<img src="https://zdbs.io/vitualization/media/esxi_vm02.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_vm02.png" width="66%" />
 
 3. 根据实际情况填写虚拟机选项，点击 `下一页`
 
-<img src="https://zdbs.io/vitualization/media/esxi_vm03.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_vm03.png" width="66%" />
 
 4. 选择已新建的 iSCSI 数据存储，点击 `下一页`
 
-<img src="https://zdbs.io/vitualization/media/esxi_vm04.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_vm04.png" width="66%" />
 
 5. 选择相应的虚拟机配置以及安装镜像，点击 `下一页`
 
-<img src="https://zdbs.io/vitualization/media/esxi_vm05.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_vm05.png" width="66%" />
 
 6. 点击 `完成`
 
-<img src="https://zdbs.io/vitualization/media/esxi_vm06.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_vm06.png" width="66%" />
 
 7. 选择新建的虚拟机，点击 `打开电源`
 
-<img src="https://zdbs.io/vitualization/media/esxi_vm07.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_vm07.png" width="66%" />
 
-<img src="https://zdbs.io/vitualization/media/esxi_vm08.png" />
+<img src="https://zdbs.io/vitualization/media/esxi_vm08.png" width="66%" />
