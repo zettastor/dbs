@@ -238,8 +238,8 @@ unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 ```bash
 apt-get update
 apt-get install curl openjdk-11-jdk maven protobuf-compiler
-curl -LO http://ftp.debian.org/debian/pool/main/t/thrift-compiler/thrift-compiler_0.9.1-2.1+b1_amd64.deb
-dpkg -i thrift-compiler_0.9.1-2.1+b1_amd64.deb
+curl -LO http://archive.ubuntu.com/ubuntu/pool/universe/t/thrift-compiler/thrift-compiler_0.9.1-2.1_amd64.deb
+dpkg -i thrift-compiler_0.9.1-2.1_amd64.deb
 ```
 
 ### SUSE/SLES 15
