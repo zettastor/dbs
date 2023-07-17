@@ -1,6 +1,6 @@
 # ZettaStor DBS
 
-[![LICENSE](https://img.shields.io/badge/licence-AGPL--3-blue.png)](LICENSE.md)
+[![LICENSE](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE.md)
 
 <img src="assets/pengyun.png" alt="ZettaStor DBS">
 
@@ -38,7 +38,7 @@
 
 [ZettaStor DBS](https://zdbs.io) 由 [南京鹏云网络科技有限公司](https://www.pengyunnetwork.cn)（简称“鹏云网络”）完全自主研发。该产品可为大规模虚拟化、私有云和容器环境，提供高可用、高性能、易扩展、易维护的企业级用户业务存储解决方案，成为核心应用上云的坚实数据底座。
 
-[ZettaStor DBS](https://zdbs.io) 分为社区版（开源）和商业版。社区版的源代码在 [AGPL 3.0](LICENSE.md) 许可证下进行分发。
+[ZettaStor DBS](https://zdbs.io) 分为社区版（开源）和商业版。社区版的源代码在 [Apache License 2.0](LICENSE.md) 许可证下进行分发。
 
 ## 系统架构图
 <img src="assets/architecture_zh.png" alt="System Architecture Diagram" width="50%">
@@ -356,4 +356,4 @@ perl bin/CreateDeployPackage.pl -d /opt/deploy
 大部分代码遵循 [Google Java 风格](https://google.github.io/styleguide/javaguide)；也有一些代码遵循 [Oracle 编码约定](https://www.oracle.com/java/technologies/javase/codeconventions-contents.html) —— 这主要取决于最初的版本。 重要的是，**您修改代码的时候请保持一致，并在修改现有源代码时将空格更改保持在最低限度。** 对于新代码，请使用 Google Java 风格。
 
 # 许可证
-[AGPL 3.0](LICENSE.md)
+[Apache License 2.0](LICENSE.md)

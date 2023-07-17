@@ -1,6 +1,6 @@
 # ZettaStor DBS
 
-[![LICENSE](https://img.shields.io/badge/licence-AGPL--3-blue.png)](LICENSE.md)
+[![LICENSE](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE.md)
 
 <img src="assets/pengyun.png" alt="ZettaStor DBS">
 
@@ -30,7 +30,7 @@ Content Index
 
 [ZettaStor DBS](https://zdbs.io) provides enterprise-level business storage solutions with high availability, high performance, easy expansion and easy maintenance for large-scale virtualization, private cloud and container environments. ZettaStor DBS, the solid digital base for cloud-based core applications, is independently developed by [Pengyun Network](https://www.pengyunnetwork.cn).
 
-[ZettaStor DBS](https://zdbs.io) comes in two distributions: the Community Edition and Enterprise Edition. The source code for the Community Edition is distributed under the [AGPL 3.0](LICENSE.md) license.
+[ZettaStor DBS](https://zdbs.io) comes in two distributions: the Community Edition and Enterprise Edition. The source code for the Community Edition is distributed under the [Apache License 2.0](LICENSE.md) license.
 
 ## System Architecture Diagram
 <img src="assets/architecture_en.png" alt="System Architecture Diagram" width="50%">
@@ -348,4 +348,4 @@ Source code should be viewed and edited with your editor set to use two spaces p
 Most parts of the code follow [Google Java Style](https://google.github.io/styleguide/javaguide.html); some parts of the code follow [Oracle's Code Conventions](https://www.oracle.com/java/technologies/javase/codeconventions-contents.html) -- mostly depending on who wrote the original version. Above all else, **be consistent with what you modify, and keep whitespace changes to a minimum when modifying existing source.** For new code, use Google Java Style.
 
 # License
-[AGPL 3.0](LICENSE.md)
+[Apache License 2.0](LICENSE.md)
