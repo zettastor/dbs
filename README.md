@@ -84,7 +84,7 @@ The repositories of ZettaStor DBS must be organized in a hierarchy structure. Th
 
 <table>
 <tr>
-  <td rowspan="30">pengyun-root</td>
+  <td rowspan="30"><a href="https://github.com/zettastor/pengyun-root">pengyun-root</a></td>
   <td rowspan="8"><a href="https://github.com/zettastor/pengyun-lib">pengyun-lib</a></td>
   <td><a href="https://github.com/zettastor/pengyun-core">pengyun-core</a></td>
 </tr>
